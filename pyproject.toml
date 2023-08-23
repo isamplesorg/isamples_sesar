@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "python-template"
+name = "iSamples SESAR"
 version = "0.1.0"
-description = "This is a template python project set up to start new work with poetry, pytest, and other common technologies we rely upon."
+description = "Deep integration between the SESAR Postgresql database and the iSamples Data Model"
 authors = ["Danny Mandel <danny.mandel@gmail.com>"]
 license = "Apache 2.0"
 readme = "README.md"
