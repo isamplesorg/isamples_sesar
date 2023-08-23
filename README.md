@@ -11,4 +11,6 @@ Follow the installation instructions in [the poetry documentation](https://pytho
 `poetry shell`, then once it's activated `poetry install`
 
 ## Run the main script
-`python main.py`
+`python main.py -d <db_url>`
+
+## Setup the database

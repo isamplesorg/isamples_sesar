@@ -1,19 +1,23 @@
 import click
 
+from isamples_sesar.sqlmodel_database import SQLModelDAO
+
 
 @click.command()
 @click.option(
-    "-v",
-    "--verbosity",
-    default="DEBUG",
-    help="Specify logging level",
+    "-d",
+    "--db_url",
+    default=None,
+    help="SQLAlchemy database URL for storage",
     show_default=True,
 )
-def main(verbosity: str):
+def main(db_url: str):
     """
-    Updates existing OpenContext records in a Things db to have their id column stripped of the n2t prefix.
+    Connects to the SESAR database and converts records to iSamples JSON
     """
-    print(f"Hello World, verbosity is {verbosity}")
+    dao = SQLModelDAO(db_url)
+    session = dao.get_session()
+    print(f"session is {session}")
 
 
 """

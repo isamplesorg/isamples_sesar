@@ -5,7 +5,9 @@ description = "Deep integration between the SESAR Postgresql database and the iS
 authors = ["Danny Mandel <danny.mandel@gmail.com>"]
 license = "Apache 2.0"
 readme = "README.md"
-packages = []
+packages = [
+    { include = "isamples_sesar"},
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
