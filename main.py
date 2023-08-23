@@ -1,6 +1,6 @@
 import click
 
-from isamples_sesar.sqlmodel_database import SQLModelDAO
+from isamples_sesar.sqlmodel_database import SQLModelDAO, get_sample_rows
 
 
 @click.command()
@@ -18,6 +18,8 @@ def main(db_url: str):
     dao = SQLModelDAO(db_url)
     session = dao.get_session()
     print(f"session is {session}")
+    rows = get_sample_rows(session)
+    print(f"rows are {rows}")
 
 
 """

@@ -10,7 +10,20 @@ Follow the installation instructions in [the poetry documentation](https://pytho
 ## Activate the python virtual environment
 `poetry shell`, then once it's activated `poetry install`
 
-## Run the main script
-`python main.py -d <db_url>`
-
 ## Setup the database
+Create the database
+
+```
+psql postgres
+CREATE DATABASE isb_sesar;
+CREATE USER isb_sesar WITH ENCRYPTED PASSWORD 'some_password';
+GRANT ALL PRIVILEGES ON DATABASE isb_sesar TO isb_sesar;
+```
+Import the dump file into the newly created database
+
+```
+pg_restore -d isb_sesar ./sesardb-schemaonly.dump
+```
+
+## Run the main script
+`python main.py -d "postgresql+psycopg2://isb_writer:password@localhost/isb_sesar"`
