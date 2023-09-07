@@ -1,6 +1,7 @@
 from typing import Any, Optional
 
 from sqlmodel import create_engine, Session, select
+from sqlalchemy import text
 from isamples_sesar.sample import Sample
 # from isamples_sesar.classification import Classification
 # from isamples_sesar.country import Country
@@ -24,7 +25,7 @@ class SQLModelDAO:
 
 
 def get_sample_rows(session: Session) -> Any:
-    sql = "select * from sample limit 1"
+    sql = text("select * from sample limit 1")
     sample_rows = session.execute(sql).fetchall()
     return sample_rows
 

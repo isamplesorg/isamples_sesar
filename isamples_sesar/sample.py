@@ -276,11 +276,6 @@ class Sample(SQLModel, table=True):
         nullable=True,
         description=""
     )
-    platform_type: Optional[str] = Field(
-        default=None,
-        nullable=True,
-        description=""
-    )
     platform_descr: Optional[str] = Field(
         default=None,
         nullable=True,
