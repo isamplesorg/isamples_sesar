@@ -1,13 +1,9 @@
-import sys
-import json
 from typing import TYPE_CHECKING, Optional, List
-import typing
 from sqlmodel import Field, SQLModel, Relationship
-from datetime import datetime
-import sqlalchemy
 
 if TYPE_CHECKING:
     from .sample import Sample
+
 
 class Sesar_User(SQLModel, table=True):
     sesar_user_id: int = Field(

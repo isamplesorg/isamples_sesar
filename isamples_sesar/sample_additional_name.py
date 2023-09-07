@@ -1,13 +1,5 @@
-import sys
-import json
-from typing import TYPE_CHECKING, Optional
-import typing
-from sqlmodel import Field, SQLModel, Relationship
-from datetime import datetime
-import sqlalchemy
+from sqlmodel import Field, SQLModel
 
-if TYPE_CHECKING:
-    from .sample import Sample
 
 class Sample_Additional_Name(SQLModel, table=True):
     sample_additional_name_id: int = Field(

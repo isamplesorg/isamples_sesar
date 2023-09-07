@@ -1,13 +1,6 @@
-import sys
-import json
-from typing import TYPE_CHECKING, Optional, List
-import typing
+from typing import Optional, List
 from sqlmodel import Field, SQLModel, Relationship
-from datetime import datetime
-import sqlalchemy
 
-if TYPE_CHECKING:
-    from .sample import Sample
 
 class Sample_Type(SQLModel, table=True):
     sample_type_id: int = Field(
@@ -32,4 +25,6 @@ class Sample_Type(SQLModel, table=True):
             remote_side="Sample_Type.sample_type_id"
         )
     )
-    children: Optional[List["Sample_Type"]] = Relationship(back_populates="parent_sample_type")
+    children: Optional[List["Sample_Type"]] = Relationship(
+        back_populates="parent_sample_type"
+    )

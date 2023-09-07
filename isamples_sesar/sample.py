@@ -1,7 +1,4 @@
-import sys
-import json
 from typing import TYPE_CHECKING, Optional, List
-import typing
 from sqlmodel import Field, SQLModel, Relationship
 from datetime import datetime
 from sqlalchemy.orm import relationship
@@ -16,6 +13,7 @@ if TYPE_CHECKING:
     from .sample_type import Sample_Type
     from .sesar_user import Sesar_User
 
+
 class Sample(SQLModel, table=True):
     sample_id: int = Field(
         primary_key=True,
@@ -23,13 +21,13 @@ class Sample(SQLModel, table=True):
         description="identifier scheme:value, globally unique"
     )
     origin_sample_id: Optional[int] = Field(
-        default=None, 
+        default=None,
         nullable=True,
         description="parent sample id",
         foreign_key="sample.sample_id"
     )
     external_parent_sample_type_id: Optional[int] = Field(
-        default=None, 
+        default=None,
         nullable=True,
         description="",
         foreign_key="sample_type.sample_type_id"
@@ -386,17 +384,21 @@ class Sample(SQLModel, table=True):
     country: Optional["Country"] = Relationship()
     classification: Optional["Classification"] = Relationship(
         sa_relationship_kwargs={
-            "primaryjoin": "Sample.classification_id==Classification.classification_id"
+            "primaryjoin":
+                "Sample.classification_id =="
+                "Classification.classification_id"
         }
     )
     top_level_classification: Optional["Classification"] = Relationship(
         sa_relationship_kwargs={
-            "primaryjoin": "Sample.top_level_classification_id==Classification.classification_id"
+            "primaryjoin":
+                "Sample.top_level_classification_id =="
+                "Classification.classification_id"
         }
     )
     launch_type: Optional["Launch_Type"] = Relationship()
     nav_type: Optional["Nav_Type"] = Relationship()
-    sample_additional_names: Optional[List["Sample_Additional_Name"]] = Relationship()
+    additional_names: Optional[List["Sample_Additional_Name"]] = Relationship()
     sample_type: Optional["Sample_Type"] = Relationship(
         sa_relationship=relationship(
             "Sample_Type", foreign_keys=[sample_type_id]
