@@ -21,6 +21,8 @@ def main(db_url: str):
     rows = get_sample_with_id(session, 4942381)
     print(f"rows are {rows}")
 
+    session.close()
+
 
 """
 Stub main python script, ready to go

@@ -376,6 +376,15 @@ class Sample(SQLModel, table=True):
         nullable=True,
         description=""
     )
+    parent: Optional["Sample"] = Relationship(
+        back_populates="children",
+        sa_relationship_kwargs=dict(
+            remote_side="Sample.sample_id"
+        )
+    )
+    children: Optional[List["Sample"]] = Relationship(
+        back_populates="parent"
+    )
     country: Optional["Country"] = Relationship()
     classification: Optional["Classification"] = Relationship(
         sa_relationship_kwargs={
