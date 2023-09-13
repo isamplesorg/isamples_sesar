@@ -1,7 +1,6 @@
 from typing import TYPE_CHECKING, Optional, List
 from sqlmodel import Field, SQLModel, Relationship
 from datetime import datetime
-from sqlalchemy.orm import relationship
 
 # make circular imports works
 if TYPE_CHECKING:
@@ -389,29 +388,29 @@ class Sample(SQLModel, table=True):
     classification: Optional["Classification"] = Relationship(
         sa_relationship_kwargs={
             "primaryjoin":
-                "Sample.classification_id =="
-                "Classification.classification_id"
+                "Sample.classification_id==Classification.classification_id"
         }
     )
     top_level_classification: Optional["Classification"] = Relationship(
         sa_relationship_kwargs={
             "primaryjoin":
-                "Sample.top_level_classification_id =="
-                "Classification.classification_id"
+                "Sample.top_level_classification_id==Classification.classification_id"
         }
     )
     launch_type: Optional["Launch_Type"] = Relationship()
     nav_type: Optional["Nav_Type"] = Relationship()
     additional_names: Optional[List["Sample_Additional_Name"]] = Relationship()
     sample_type: Optional["Sample_Type"] = Relationship(
-        sa_relationship=relationship(
-            "Sample_Type", foreign_keys=[sample_type_id]
-        )
+        sa_relationship_kwargs={
+            "primaryjoin":
+                "Sample.sample_type_id==Sample_Type.sample_type_id"
+        }
     )
     external_parent_sample_type: Optional["Sample_Type"] = Relationship(
-        sa_relationship=relationship(
-            "Sample_Type", foreign_keys=[external_parent_sample_type_id]
-        )
+        sa_relationship_kwargs={
+            "primaryjoin":
+                "Sample.external_parent_sample_type_id==Sample_Type.sample_type_id"
+        }
     )
     cur_registrant: Optional["Sesar_User"] = Relationship(
         back_populates="cur_registrant_samples",
