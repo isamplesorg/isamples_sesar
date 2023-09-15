@@ -1,0 +1,78 @@
+{
+    "$schema": "iSamplesSchemaCore1.0.json",
+    "@id": "https://data.isamples.org/digitalsample/igsn/10.60471/ODP02Q1IZ",
+    "authorizedBy": [],
+    "compliesWith": [],
+    "curation": {
+        "accessConstraints": "Not Provided",
+        "curationLocation": "Integrated Ocean Drilling Program (IODP)",
+        "description": "Not Provided",
+        "label": "Not Provided",
+        "responsibility": [
+            {
+                "name": "Integrated Ocean Drilling Program (TAMU)",
+                "role": "curator"
+            },
+            {
+                "contact_information": "information@iodp.tamu.edu",
+                "name": "Integrated Ocean Drilling Program (TAMU)",
+                "role": "sample owner"
+            },
+            {
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
+                "role": "metadata publisher"
+            }
+        ]
+    },
+    "description": "Janus sample_id: 63151",
+    "hasContextCategory": [
+        "Not Provided"
+    ],
+    "hasMaterialCategory": [
+        "Not Provided"
+    ],
+    "hasSpecimenCategory": [
+        "Other solid object"
+    ],
+    "informalClassification": [
+        "Not Provided"
+    ],
+    "keywords": [
+        {
+            "keyword": "Individual Sample",
+            "scheme_name": "SESAR: Sample Type"
+        }
+    ],
+    "label": "Sample 178-1098B-1H-3 (26-27 cm.)",
+    "producedBy": {
+        "@id": "IGSN:10.60471/ODP01LAMY",
+        "description": "cruiseFieldPrgrm:ODP Leg 178. Janus sample_id: 63151",
+        "hasFeatureOfInterest": "Not Provided",
+        "label": "ODP Leg 178",
+        "responsibility": [
+            {
+                "name": "Integrated Ocean Drilling Program (TAMU)",
+                "role": "sample owner"
+            },
+            {
+                "name": "ODP Leg 178",
+                "role": "sponsor"
+            }
+        ],
+        "resultTime": "2006-08-11",
+        "samplingSite": {
+            "description": "Not Provided",
+            "label": "Not Provided",
+            "location": {
+                "elevation": "-1010.6 m",
+                "latitude": -64.86194,
+                "longitude": -64.20799
+            },
+            "placeName": []
+        }
+    },
+    "registrant": "Integrated Ocean Drilling Program (TAMU)",
+    "relatedResource": [],
+    "sampleidentifier": "IGSN:10.60471/ODP02Q1IZ",
+    "samplingPurpose": "Not Provided"
+}

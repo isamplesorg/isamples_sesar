@@ -1,0 +1,76 @@
+{
+    "$schema": "iSamplesSchemaCore1.0.json",
+    "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/IEJEN0040",
+    "authorizedBy": [],
+    "compliesWith": [],
+    "curation": {
+        "accessConstraints": "Not Provided",
+        "curationLocation": "Lamont-Doherty Earth Observatory",
+        "description": "Not Provided",
+        "label": "Not Provided",
+        "responsibility": [
+            {
+                "contact_information": "jnichols@ldeo.columbia.edu",
+                "name": "Jonathan Nichols",
+                "role": "sample owner"
+            },
+            {
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
+                "role": "metadata publisher"
+            }
+        ]
+    },
+    "description": "Biology",
+    "hasContextCategory": [
+        "Not Provided"
+    ],
+    "hasMaterialCategory": [
+        "Organic material"
+    ],
+    "hasSpecimenCategory": [
+        "Other solid object"
+    ],
+    "informalClassification": [
+        "Not Provided"
+    ],
+    "keywords": [
+        {
+            "keyword": "Grab",
+            "scheme_name": "SESAR: Sample Type"
+        }
+    ],
+    "label": "Goldfin ~20 m moss from 30 cm hummock",
+    "producedBy": {
+        "@id": "",
+        "description": "Not Provided",
+        "hasFeatureOfInterest": "peatland",
+        "label": "Not Provided",
+        "responsibility": [
+            {
+                "name": "Miriam Jones",
+                "role": "collector"
+            },
+            {
+                "name": "Jonathan Nichols",
+                "role": "sample owner"
+            }
+        ],
+        "resultTime": "2017-09-01",
+        "samplingSite": {
+            "description": "Not Provided",
+            "label": "Not Provided",
+            "location": {
+                "elevation": "Not Provided",
+                "latitude": 60.25455,
+                "longitude": -149.35756666667
+            },
+            "placeName": [
+                "Gold Fin"
+            ]
+        }
+    },
+    "registrant": "Jonathan Nichols",
+    "relatedResource": [],
+    "sampleidentifier": "IGSN:10.58052/IEJEN0040",
+    "samplingPurpose": "Not Provided"
+}

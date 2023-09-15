@@ -1,0 +1,78 @@
+{
+    "$schema": "iSamplesSchemaCore1.0.json",
+    "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/IERVTL1I7",
+    "authorizedBy": [],
+    "compliesWith": [],
+    "curation": {
+        "accessConstraints": "Not Provided",
+        "curationLocation": "Not Provided",
+        "description": "Not Provided",
+        "label": "Not Provided",
+        "responsibility": [
+            {
+                "contact_information": "wfsfa-data@lbl.gov",
+                "name": "Watershed Function SFA Data Team",
+                "role": "sample owner"
+            },
+            {
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
+                "role": "metadata publisher"
+            }
+        ]
+    },
+    "description": "Gas. Headspace equilibration method",
+    "hasContextCategory": [
+        "Subsurface fluid reservoir"
+    ],
+    "hasMaterialCategory": [
+        "Gaseous material"
+    ],
+    "hasSpecimenCategory": [
+        "Other solid object"
+    ],
+    "informalClassification": [
+        "Not Provided"
+    ],
+    "keywords": [
+        {
+            "keyword": "Individual Sample",
+            "scheme_name": "SESAR: Sample Type"
+        }
+    ],
+    "label": "0744",
+    "producedBy": {
+        "@id": "IGSN:10.58052/IERVTNTEZ",
+        "description": "cruiseFieldPrgrm:SLAC-SFA. Collection method:Headspace equilibration method",
+        "hasFeatureOfInterest": "floodplain, aquifer",
+        "label": "Headspace equilibration method, SLAC-SFA",
+        "responsibility": [
+            {
+                "name": "Zach Perzan",
+                "role": "collector"
+            },
+            {
+                "name": "SLAC SFA",
+                "role": "sample owner"
+            },
+            {
+                "name": "SLAC-SFA",
+                "role": "sponsor"
+            }
+        ],
+        "resultTime": "2019-05-24",
+        "samplingSite": {
+            "description": "Not Provided",
+            "label": "Not Provided",
+            "location": {
+                "elevation": "Not Provided",
+                "latitude": 42.988396,
+                "longitude": -108.400284
+            },
+            "placeName": []
+        }
+    },
+    "registrant": "SLAC SFA",
+    "relatedResource": [],
+    "sampleidentifier": "IGSN:10.58052/IERVTL1I7",
+    "samplingPurpose": "2018 inundation tracer tests"
+}
