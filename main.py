@@ -1,6 +1,6 @@
 import click
 from isamples_sesar.sqlmodel_database import SQLModelDAO, get_sample_with_igsn
-from isamples_sesar.SesarTransformer import Transformer
+from isamples_sesar.sesar_transformer import Transformer
 import json
 
 

@@ -3,7 +3,7 @@ from typing import Optional
 import logging
 from .sample import Sample
 
-from .Mapper import (
+from .mapper import (
     AbstractCategoryMapper,
     StringPairedCategoryMapper,
     StringOrderedCategoryMapper,
@@ -112,9 +112,7 @@ class Transformer():
         return SpecimenCategoryMetaMapper.categories(sample_type)
 
     def id_string(self) -> str:
-        return "https://data.isamples.org/digitalsample/{0}/{1}".format(
-            'igsn', self.sample.igsn
-        )
+        return f"https://data.isamples.org/digitalsample/igsn/{self.sample.igsn}"
 
     def _material_type(self) -> str:
         if self.sample.classification and self.sample.top_level_classification:
@@ -158,6 +156,7 @@ class Transformer():
         return [Transformer.NOT_PROVIDED]
 
     def keywords(self) -> typing.List:
+        # TODO: add more keywords
         keyword_arr = []
         sample_type = self.sample.sample_type
         if sample_type:
@@ -259,17 +258,17 @@ class Transformer():
             }
             responsibilities.append(collector)
 
-        if self.sample.orig_owner:
-            if self.sample.orig_owner.fname.lower() == 'curator':
-                sample_owner_name = self.sample.orig_owner.lname
-            else:
-                sample_owner_name = f"{self.sample.orig_owner.fname} {self.sample.orig_owner.lname}"
-            if sample_owner_name:
-                sample_owner = {
-                    "role": "sample owner",
-                    "name": sample_owner_name
-                }
-                responsibilities.append(sample_owner)
+        # if self.sample.orig_owner:
+        #     if self.sample.orig_owner.fname.lower() == 'curator':
+        #         sample_owner_name = self.sample.orig_owner.lname
+        #     else:
+        #         sample_owner_name = f"{self.sample.orig_owner.fname} {self.sample.orig_owner.lname}"
+        #     if sample_owner_name:
+        #         sample_owner = {
+        #             "role": "sample owner",
+        #             "name": sample_owner_name
+        #         }
+        #         responsibilities.append(sample_owner)
 
         if self.sample.cruise_field_prgrm:
             cruise_field_prgrm = {
