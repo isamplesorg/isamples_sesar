@@ -48,7 +48,7 @@
        working-directory: ./tests
        run: |
          source ../.venv/bin/activate
-         pytest
+         pytest --db-url=${{ secrets.DB_URL }}
      - name: flake8 linter
        run:  |
          source ./.venv/bin/activate

@@ -51,10 +51,6 @@
         "label": "ODP Leg 178",
         "responsibility": [
             {
-                "name": "Integrated Ocean Drilling Program (TAMU)",
-                "role": "sample owner"
-            },
-            {
                 "name": "ODP Leg 178",
                 "role": "sponsor"
             }

@@ -10,8 +10,8 @@
         "label": "Not Provided",
         "responsibility": [
             {
-                "contact_information": "wfsfa-data@lbl.gov",
-                "name": "Watershed Function SFA Data Team",
+                "contact_information": "zperzan@slac.stanford.edu",
+                "name": "SLAC SFA",
                 "role": "sample owner"
             },
             {
@@ -49,10 +49,6 @@
             {
                 "name": "Zach Perzan",
                 "role": "collector"
-            },
-            {
-                "name": "SLAC SFA",
-                "role": "sample owner"
             },
             {
                 "name": "SLAC-SFA",

@@ -600,7 +600,7 @@ class ContextCategoryMetaMapper(AbstractCategoryMetaMapper):
         "Liquid>aqueous", "Vent", "Subsurface fluid reservoir"
     )
     _floodplainAquiferMapper = StringPairedCategoryMapper(
-        "Liquid>aqueous", "floodplain\, aquifer", "Subsurface fluid reservoir"  # noqa: W605
+        "Liquid>aqueous", "floodplain, aquifer", "Subsurface fluid reservoir"  # noqa: W605
     )
     _creekBankMapper = StringPairedCategoryMapper(
         "Sedimentary>GlacialAndOrPaleosol>Rock",
