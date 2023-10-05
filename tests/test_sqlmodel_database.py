@@ -26,28 +26,28 @@ def session_fixture():
     )
     SQLModel.metadata.create_all(engine)
     sample = Sample(
-            sample_id=1,
-            origin_sample_id=2,
-            sample_type_id=1,
-            igsn="10.58052/IE123TEST",
-            igsn_prefix="IE123",
-            name="Test Sample",
-            classification_id=1,
-            top_level_classification_id=2,
-            country_id=1,
-            nav_type_id=1,
-            launch_type_id=1,
-            cur_registrant_id=1,
-            orig_owner_id=1,
-            cur_owner_id=1
-        )
+        sample_id=1,
+        origin_sample_id=2,
+        sample_type_id=1,
+        igsn="10.58052/IE123TEST",
+        igsn_prefix="IE123",
+        name="Test Sample",
+        classification_id=1,
+        top_level_classification_id=2,
+        country_id=1,
+        nav_type_id=1,
+        launch_type_id=1,
+        cur_registrant_id=1,
+        orig_owner_id=1,
+        cur_owner_id=1
+    )
     parent_sample = Sample(
-            sample_id=2,
-            sample_type_id=1,
-            igsn="10.58052/IE123PARENT",
-            igsn_prefix="IE123",
-            name="Parent Sample"
-        )
+        sample_id=2,
+        sample_type_id=1,
+        igsn="10.58052/IE123PARENT",
+        igsn_prefix="IE123",
+        name="Parent Sample"
+    )
     sample_type = Sample_Type(
         sample_type_id=1,
         name="Test Sample Type",
@@ -128,28 +128,19 @@ def test_sample_relationships(session: Session):
     sample = get_sample_with_id(session, 1)
     parent_sample = get_sample_with_id(session, 2)
 
-    if sample:
-        if sample.parent:
-            assert sample.parent.name == "Parent Sample"
-        if parent_sample and parent_sample.children:
-            assert parent_sample.children[0].name == "Test Sample"
-        if sample.country:
-            assert sample.country.name == "Wakanda"
-        if sample.sample_type:
-            assert sample.sample_type.name == "Test Sample Type"
-            if sample.sample_type.parent_sample_type:
-                assert sample.sample_type.parent_sample_type.name == "Test Parent Sample Type"
-        if sample.classification:
-            assert sample.classification.name == "Child classification"
-            if sample.classification.parent_classification:
-                assert sample.classification.parent_classification.name == "Parent classification"
-        if sample.top_level_classification:
-            assert sample.top_level_classification.name == "Parent classification"
-        if sample.cur_owner:
-            assert sample.cur_owner.fname == "Owner"
-        if sample.nav_type:
-            assert sample.nav_type.name == "Test Nav Type"
-        if sample.launch_type:
-            assert sample.launch_type.name == "Test Launch Type"
-        if sample.additional_names:
-            assert sample.additional_names[0].name == "Another name"
+    assert sample is not None
+    assert parent_sample is not None
+    assert sample.parent is not None and sample.parent.name == "Parent Sample"
+    assert parent_sample.children is not None and parent_sample.children[0].name == "Test Sample"
+    assert sample.country is not None and sample.country.name == "Wakanda"
+    assert sample.sample_type is not None and sample.sample_type.name == "Test Sample Type"
+    assert sample.sample_type.parent_sample_type is not None
+    assert sample.sample_type.parent_sample_type.name == "Test Parent Sample Type"
+    assert sample.classification is not None and sample.classification.name == "Child classification"
+    assert sample.classification.parent_classification is not None
+    assert sample.classification.parent_classification.name == "Parent classification"
+    assert sample.top_level_classification is not None and sample.top_level_classification.name == "Parent classification"
+    assert sample.cur_owner is not None and sample.cur_owner.fname == "Owner"
+    assert sample.nav_type is not None and sample.nav_type.name == "Test Nav Type"
+    assert sample.launch_type is not None and sample.launch_type.name == "Test Launch Type"
+    assert sample.additional_names is not None and sample.additional_names[0].name == "Another name"

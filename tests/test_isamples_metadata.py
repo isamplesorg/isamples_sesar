@@ -387,7 +387,7 @@ def test_example(session: Session, igsn):
     transformed_test_data = Transformer(sample).transform()
 
     igsn_suffix = igsn.split("/")[1]
-    json_file = open("examples/"+igsn_suffix+".json")
+    json_file = open("examples/" + igsn_suffix + ".json")
     expected_data = json.load(json_file)
     json_file.close()
 
