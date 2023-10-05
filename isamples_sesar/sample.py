@@ -273,6 +273,11 @@ class Sample(SQLModel, table=True):
         nullable=True,
         description=""
     )
+    platform_name: Optional[str] = Field(
+        default=None,
+        nullable=True,
+        description=""
+    )
     platform_descr: Optional[str] = Field(
         default=None,
         nullable=True,
