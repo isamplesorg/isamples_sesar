@@ -373,6 +373,7 @@ def session_fixture():
         session.commit()
         yield session
 
+
 @pytest.mark.parametrize("igsn", ["10.58052/EOI00002H",
                                   "10.58052/IEDUT103B",
                                   "10.58052/IEEJR000M",
