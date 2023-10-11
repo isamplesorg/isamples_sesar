@@ -1,16 +1,14 @@
-from typing import TYPE_CHECKING, Optional, List
+from typing import Optional, List
 from sqlmodel import Field, SQLModel, Relationship
 from datetime import datetime
 
-# make circular imports works
-if TYPE_CHECKING:
-    from .classification import Classification
-    from .country import Country
-    from .launch_type import Launch_Type
-    from .nav_type import Nav_Type
-    from .sample_additional_name import Sample_Additional_Name
-    from .sample_type import Sample_Type
-    from .sesar_user import Sesar_User
+from .classification import Classification
+from .country import Country
+from .launch_type import Launch_Type
+from .nav_type import Nav_Type
+from .sample_additional_name import Sample_Additional_Name
+from .sample_type import Sample_Type
+from .sesar_user import Sesar_User
 
 
 class Sample(SQLModel, table=True):
@@ -275,6 +273,11 @@ class Sample(SQLModel, table=True):
         nullable=True,
         description=""
     )
+    platform_name: Optional[str] = Field(
+        default=None,
+        nullable=True,
+        description=""
+    )
     platform_descr: Optional[str] = Field(
         default=None,
         nullable=True,
@@ -400,7 +403,7 @@ class Sample(SQLModel, table=True):
     launch_type: Optional["Launch_Type"] = Relationship()
     nav_type: Optional["Nav_Type"] = Relationship()
     additional_names: Optional[List["Sample_Additional_Name"]] = Relationship()
-    sample_type: Optional["Sample_Type"] = Relationship(
+    sample_type: "Sample_Type" = Relationship(
         sa_relationship_kwargs={
             "primaryjoin":
                 "Sample.sample_type_id==Sample_Type.sample_type_id"

@@ -1,0 +1,84 @@
+{
+    "$schema": "iSamplesSchemaCore1.0.json",
+    "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/IEDUT103B",
+    "authorizedBy": [],
+    "compliesWith": [],
+    "curation": {
+        "accessConstraints": "Not Provided",
+        "curationLocation": "University of Florida Department of Geological Sciences",
+        "description": "Not Provided",
+        "label": "Not Provided",
+        "responsibility": [
+            {
+                "contact_information": "dutton3@wisc.edu",
+                "name": "Andrea Dutton",
+                "role": "sample owner"
+            },
+            {
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
+                "role": "metadata publisher"
+            }
+        ]
+    },
+    "description": "Macrobiology>Coral>Biology. Coring>HandHeldCorer. piece of short core",
+    "hasContextCategory": [
+        "Not Provided"
+    ],
+    "hasMaterialCategory": [
+        "Organic material",
+        "Biogenic non-organic material"
+    ],
+    "hasSpecimenCategory": [
+        "Not Provided"
+    ],
+    "informalClassification": [
+        "Not Provided"
+    ],
+    "keywords": [
+        {
+            "keyword": "Individual Sample>Cylinder",
+            "scheme_name": "SESAR: Sample Type"
+        },
+        {
+            "keyword": "Pseudodiploria strigosa",
+            "scheme_name": "taxon: species"
+        }
+    ],
+    "label": "JAM42",
+    "producedBy": {
+        "@id": "",
+        "description": "cruiseFieldPrgrm:UF Jamaica 2015 Fieldwork. Collection method:Coring>HandHeldCorer. piece of short core",
+        "hasFeatureOfInterest": "Reef",
+        "label": "Coring>HandHeldCorer, UF Jamaica 2015 Fieldwork",
+        "responsibility": [
+            {
+                "name": "Andrea Dutton",
+                "role": "collector"
+            },
+            {
+                "name": "UF Jamaica 2015 Fieldwork",
+                "role": "sponsor"
+            }
+        ],
+        "resultTime": "2015-06-19",
+        "samplingSite": {
+            "description": "Between Buccaneer Villa, Treasure Beach, and Great Bay",
+            "label": "Treasure Beach",
+            "location": {
+                "elevation": "1.626 m",
+                "latitude": 17.88451,
+                "longitude": -77.77107
+            },
+            "placeName": [
+                "Limestone Falmouth Formation ",
+                "Saint Elizabeth",
+                "Cornwall",
+                "Treasure Beach"
+            ]
+        }
+    },
+    "registrant": "Andrea Dutton",
+    "relatedResource": [],
+    "sampleidentifier": "IGSN:10.58052/IEDUT103B",
+    "samplingPurpose": "Paleosea-level"
+}

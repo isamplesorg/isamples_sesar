@@ -1,0 +1,76 @@
+{
+    "$schema": "iSamplesSchemaCore1.0.json",
+    "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/EOI00002H",
+    "authorizedBy": [],
+    "compliesWith": [],
+    "curation": {
+        "accessConstraints": "Not Provided",
+        "curationLocation": "Not Provided",
+        "description": "Not Provided",
+        "label": "Not Provided",
+        "responsibility": [
+            {
+                "contact_information": "andra.bobbitt@noaa.gov",
+                "name": "Andra Bobbitt",
+                "role": "sample owner"
+            },
+            {
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
+                "role": "metadata publisher"
+            }
+        ]
+    },
+    "description": "Gas. Sampler:Fluid:GTHFS. HFS gastight. Red-center-9. T=250C",
+    "hasContextCategory": [
+        "Subsurface fluid reservoir"
+    ],
+    "hasMaterialCategory": [
+        "Gaseous material"
+    ],
+    "hasSpecimenCategory": [
+        "Other solid object"
+    ],
+    "informalClassification": [
+        "Not Provided"
+    ],
+    "keywords": [
+        {
+            "keyword": "Individual Sample",
+            "scheme_name": "SESAR: Sample Type"
+        }
+    ],
+    "label": "J730-GTHFS-16",
+    "producedBy": {
+        "@id": "",
+        "description": "cruiseFieldPrgrm:TN300. launchPlatformName:Jason II. Collection method:Sampler:Fluid:GTHFS. HFS gastight. Red-center-9. T=250C. launch type:ROV, navigation type:USBL",
+        "hasFeatureOfInterest": "volcano",
+        "label": "Sampler:Fluid:GTHFS, TN300",
+        "responsibility": [
+            {
+                "name": "Evans_Leigh",
+                "role": "collector"
+            },
+            {
+                "name": "TN300",
+                "role": "sponsor"
+            }
+        ],
+        "resultTime": "2013-09-14",
+        "samplingSite": {
+            "description": "Trevi:Jason Tmax=257.9 C. In the direct flow at this small anhydrite mound (anhydrite knocked over).",
+            "label": "Not Provided",
+            "location": {
+                "elevation": "-1520.0 m",
+                "latitude": 45.946265,
+                "longitude": -129.983725
+            },
+            "placeName": [
+                "Axial Seamount"
+            ]
+        }
+    },
+    "registrant": "Andra Bobbitt",
+    "relatedResource": [],
+    "sampleidentifier": "IGSN:10.58052/EOI00002H",
+    "samplingPurpose": "Not Provided"
+}

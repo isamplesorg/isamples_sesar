@@ -3,13 +3,6 @@ from typing import Any, Optional
 from sqlmodel import create_engine, Session, select
 from sqlalchemy import text
 from isamples_sesar.sample import Sample
-# from isamples_sesar.classification import Classification
-# from isamples_sesar.country import Country
-# from isamples_sesar.launch_type import Launch_Type
-# from isamples_sesar.nav_type import Nav_Type
-# from isamples_sesar.sample_additional_name import Sample_Additional_Name
-# from isamples_sesar.sample_type import Sample_Type
-# from isamples_sesar.sesar_user import Sesar_User
 
 
 class SQLModelDAO:

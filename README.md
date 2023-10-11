@@ -27,3 +27,6 @@ pg_restore -d isb_sesar ./sesardb-schemaonly.dump
 
 ## Run the main script
 `python main.py -d "postgresql+psycopg2://isb_writer:password@localhost/isb_sesar"`
+
+## Run the test script
+`pytest --db-url="postgresql+psycopg2://username:password@DB_HOST/DB_NAME"`

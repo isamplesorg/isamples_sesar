@@ -1,0 +1,80 @@
+{
+    "$schema": "iSamplesSchemaCore1.0.json",
+    "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/IEEJR000M",
+    "authorizedBy": [],
+    "compliesWith": [],
+    "curation": {
+        "accessConstraints": "Not Provided",
+        "curationLocation": "The University of Texas at Austin",
+        "description": "Not Provided",
+        "label": "Not Provided",
+        "responsibility": [
+            {
+                "contact_information": "ejramos@utexas.edu",
+                "name": "Evan Ramos",
+                "role": "sample owner"
+            },
+            {
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
+                "role": "metadata publisher"
+            }
+        ]
+    },
+    "description": "Metamorphic>Meta-Carbonate>Rock. Manual>Hammer",
+    "hasContextCategory": [
+        "Earth interior"
+    ],
+    "hasMaterialCategory": [
+        "Rock"
+    ],
+    "hasSpecimenCategory": [
+        "Other solid object"
+    ],
+    "informalClassification": [
+        "Not Provided"
+    ],
+    "keywords": [
+        {
+            "keyword": "Individual Sample",
+            "scheme_name": "SESAR: Sample Type"
+        },
+        {
+            "keyword": "Marble",
+            "scheme_name": "taxon: species"
+        }
+    ],
+    "label": "16ER6F3",
+    "producedBy": {
+        "@id": "",
+        "description": "Collection method:Manual>Hammer",
+        "hasFeatureOfInterest": "Metamorphic aureole",
+        "label": "Manual>Hammer",
+        "responsibility": [
+            {
+                "name": "Jade Star Lackey",
+                "role": "collector"
+            }
+        ],
+        "resultTime": "2021-01-19",
+        "samplingSite": {
+            "description": "Not Provided",
+            "label": "Not Provided",
+            "location": {
+                "elevation": "Not Provided",
+                "latitude": 36.461666,
+                "longitude": -118.583888
+            },
+            "placeName": [
+                "Mineral King",
+                "Sequoia National Forest",
+                "California",
+                "Tulare",
+                "Silver City"
+            ]
+        }
+    },
+    "registrant": "Evan Ramos",
+    "relatedResource": [],
+    "sampleidentifier": "IGSN:10.58052/IEEJR000M",
+    "samplingPurpose": "Not Provided"
+}

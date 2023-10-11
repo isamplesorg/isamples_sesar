@@ -11,12 +11,12 @@ class Sesar_User(SQLModel, table=True):
         nullable=False,
         description=""
     )
-    fname: Optional[str] = Field(
+    fname: str = Field(
         default=None,
         nullable=True,
         description=""
     )
-    lname: Optional[str] = Field(
+    lname: str = Field(
         default=None,
         nullable=True,
         description=""

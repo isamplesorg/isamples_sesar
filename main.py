@@ -1,5 +1,7 @@
 import click
-from isamples_sesar.sqlmodel_database import SQLModelDAO, get_sample_with_id
+from isamples_sesar.sqlmodel_database import SQLModelDAO, get_sample_with_igsn
+from isamples_sesar.sesar_transformer import Transformer
+import json
 
 
 @click.command()
@@ -16,10 +18,16 @@ def main(db_url: str):
     """
     dao = SQLModelDAO(db_url)
     session = dao.get_session()
-    # print(f"session is {session}")
-    # rows = get_sample_rows(session)
-    rows = get_sample_with_id(session, 4942381)
-    print(f"rows are {rows}")
+
+    sample = get_sample_with_igsn(session, "10.58052/EOI00002H")
+    sample = get_sample_with_igsn(session, "10.58052/IEDUT103B")
+    sample = get_sample_with_igsn(session, "10.58052/IEEJR000M")
+    sample = get_sample_with_igsn(session, "10.58052/IEJEN0040")
+    sample = get_sample_with_igsn(session, "10.58052/IERVTL1I7")
+    sample = get_sample_with_igsn(session, "10.60471/ODP02Q1IZ")
+    if sample:
+        content = Transformer(sample).transform()
+        print(json.dumps(content, indent=4, sort_keys=True, default=str))
 
     session.close()
 
