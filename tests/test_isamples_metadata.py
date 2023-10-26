@@ -1,8 +1,9 @@
 import pytest
 import json
-from sqlmodel import Session, SQLModel, create_engine
+from sqlmodel import Session, create_engine
 from sqlmodel.pool import StaticPool
 
+from isamples_sesar.sesar_sqlmodel import SesarBase
 from isamples_sesar.sesar_transformer import Transformer
 from isamples_sesar.sqlmodel_database import (
     get_sample_with_igsn
@@ -27,7 +28,7 @@ def session_fixture():
         poolclass=StaticPool,
         echo=True
     )
-    SQLModel.metadata.create_all(engine)
+    SesarBase.metadata.create_all(engine)
     sample_1 = Sample(
         sample_id=3661220,
         sample_type_id=15,
