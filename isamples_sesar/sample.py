@@ -1,7 +1,8 @@
 from typing import Optional, List
-from sqlmodel import Field, SQLModel, Relationship
+from sqlmodel import Field, Relationship
 from datetime import datetime
 
+from .sesar_sqlmodel import SesarBase
 from .classification import Classification
 from .country import Country
 from .launch_type import Launch_Type
@@ -11,7 +12,7 @@ from .sample_type import Sample_Type
 from .sesar_user import Sesar_User
 
 
-class Sample(SQLModel, table=True):
+class Sample(SesarBase, table=True):
     sample_id: int = Field(
         primary_key=True,
         nullable=False,
@@ -355,19 +356,19 @@ class Sample(SQLModel, table=True):
         nullable=True,
         description=""
     )
-    cur_registrant_id: Optional[str] = Field(
+    cur_registrant_id: Optional[int] = Field(
         default=None,
         nullable=True,
         description="",
         foreign_key="sesar_user.sesar_user_id"
     )
-    orig_owner_id: Optional[str] = Field(
+    orig_owner_id: Optional[int] = Field(
         default=None,
         nullable=True,
         description="",
         foreign_key="sesar_user.sesar_user_id"
     )
-    cur_owner_id: Optional[str] = Field(
+    cur_owner_id: Optional[int] = Field(
         default=None,
         nullable=True,
         description="",

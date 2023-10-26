@@ -1,8 +1,9 @@
 from typing import Optional, List
-from sqlmodel import Field, SQLModel, Relationship
+from sqlmodel import Field, Relationship
+from .sesar_sqlmodel import SesarBase
 
 
-class Sample_Type(SQLModel, table=True):
+class Sample_Type(SesarBase, table=True):
     sample_type_id: int = Field(
         primary_key=True,
         nullable=False,

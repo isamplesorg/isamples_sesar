@@ -1,8 +1,9 @@
 from typing import Optional, List
-from sqlmodel import Field, SQLModel, Relationship
+from sqlmodel import Field, Relationship
+from .sesar_sqlmodel import SesarBase
 
 
-class Classification(SQLModel, table=True):
+class Classification(SesarBase, table=True):
     classification_id: int = Field(
         primary_key=True,
         nullable=False,
