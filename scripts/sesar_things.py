@@ -17,7 +17,13 @@ def load_sesar_entries(sesar_db_session, isb_db_session, start_from=None):
     num_newer = 0
     while (more_samples):
         primary_keys_by_id = all_thing_primary_keys(isb_db_session, SESARItem.AUTHORITY_ID)
-        bulk_updater = DatabaseBulkUpdater(isb_db_session, SESARItem.AUTHORITY_ID, BATCH_SIZE, SESARItem.MEDIA_TYPE, primary_keys_by_id)
+        bulk_updater = DatabaseBulkUpdater(
+            isb_db_session,
+            SESARItem.AUTHORITY_ID,
+            BATCH_SIZE,
+            SESARItem.MEDIA_TYPE,
+            primary_keys_by_id
+        )
 
         samples = get_sample_rows(sesar_db_session, offset, BATCH_SIZE, start_from)
         if (len(samples) == 0):
