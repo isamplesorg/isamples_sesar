@@ -67,6 +67,11 @@ class Sample(SesarBase, table=True):
         nullable=True,
         description="date a sample was registered",
     )
+    last_update_date: datetime = Field(
+        default=None,
+        nullable=True,
+        description="date sample was last updated",
+    )
     name: str = Field(
         nullable=False,
         description="sample name"

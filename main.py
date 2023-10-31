@@ -1,4 +1,5 @@
 import click
+import click_config_file
 from isamples_sesar.sqlmodel_database import SQLModelDAO, get_sample_with_igsn
 from isamples_sesar.sesar_transformer import Transformer
 import json
@@ -7,16 +8,17 @@ import json
 @click.command()
 @click.option(
     "-d",
-    "--db_url",
+    "--sesar_db_url",
     default=None,
     help="SQLAlchemy database URL for storage",
     show_default=True,
 )
-def main(db_url: str):
+@click_config_file.configuration_option(config_file_name="sesar.cfg")
+def main(sesar_db_url: str):
     """
     Connects to the SESAR database and converts records to iSamples JSON
     """
-    dao = SQLModelDAO(db_url)
+    dao = SQLModelDAO(sesar_db_url)
     session = dao.get_session()
 
     sample = get_sample_with_igsn(session, "10.58052/EOI00002H")
