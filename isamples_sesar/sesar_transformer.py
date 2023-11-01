@@ -1,6 +1,7 @@
 import typing
 from typing import Optional
 import logging
+import h3
 from .sample import Sample
 
 from .mapper import (
@@ -18,6 +19,8 @@ class Transformer():
     NOT_PROVIDED = "Not Provided"
 
     FEET_PER_METER = 3.28084
+
+    DEFAULT_H3_RESOLUTION = 15
 
     def __init__(self, sample: Sample):
         self.sample = sample
@@ -79,6 +82,10 @@ class Transformer():
             "authorizedBy": self.authorized_by(),
             "compliesWith": self.complies_with(),
         }
+        for index in range(0, 15):
+            h3_at_resolution = self.h3_function()(self.sample.latitude, self.sample.longitude, index)
+            field_name = f"producedBy_samplingSite_location_h3_{index}"
+            transformed_record[field_name] = h3_at_resolution
         return transformed_record
 
     def has_context_categories(self) -> typing.List[str]:
@@ -406,6 +413,9 @@ class Transformer():
         responsibility.append(metadata_publisher)
         return responsibility
 
+    def h3_function(self) -> typing.Callable:
+        return geo_to_h3
+
 
 class MaterialCategoryMetaMapper(AbstractCategoryMetaMapper):
     _endsWithRockMapper = StringEndsWithCategoryMapper("Rock", "Rock")
@@ -627,3 +637,14 @@ class ContextCategoryMetaMapper(AbstractCategoryMetaMapper):
             cls._floodplainAquiferMapper,
             cls._creekBankMapper,
         ]
+
+
+def geo_to_h3(
+    latitude: typing.Optional[float],
+    longitude: typing.Optional[float],
+    resolution: int = Transformer.DEFAULT_H3_RESOLUTION
+) -> typing.Optional[str]:
+    if latitude is not None and longitude is not None:
+        return h3.latlng_to_cell(latitude, longitude, resolution)
+    else:
+        return None
