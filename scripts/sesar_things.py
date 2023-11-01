@@ -32,7 +32,7 @@ def load_sesar_entries(sesar_db_session, isb_db_session, start_from=None):
             for sample in samples:
                 current_record = Transformer(sample).transform()
                 num_newer += 1
-                thing_id = sample.igsn
+                thing_id = f"igsn:{sample.igsn}"
                 resolved_url = f"doi.org/{sample.igsn}"
                 # h3 = Transformer.geo_to_h3(current_record)
                 t_created = sample.registration_date

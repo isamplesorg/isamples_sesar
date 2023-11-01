@@ -45,7 +45,7 @@
     ],
     "label": "Sample 178-1098B-1H-3 (26-27 cm.)",
     "producedBy": {
-        "@id": "IGSN:10.60471/ODP01LAMY",
+        "@id": "igsn:10.60471/ODP01LAMY",
         "description": "cruiseFieldPrgrm:ODP Leg 178. Janus sample_id: 63151",
         "hasFeatureOfInterest": "Not Provided",
         "label": "ODP Leg 178",
@@ -69,6 +69,6 @@
     },
     "registrant": "Integrated Ocean Drilling Program (TAMU)",
     "relatedResource": [],
-    "sampleidentifier": "IGSN:10.60471/ODP02Q1IZ",
+    "sampleidentifier": "igsn:10.60471/ODP02Q1IZ",
     "samplingPurpose": "Not Provided"
 }

@@ -41,7 +41,7 @@
     ],
     "label": "0744",
     "producedBy": {
-        "@id": "IGSN:10.58052/IERVTNTEZ",
+        "@id": "igsn:10.58052/IERVTNTEZ",
         "description": "cruiseFieldPrgrm:SLAC-SFA. Collection method:Headspace equilibration method",
         "hasFeatureOfInterest": "floodplain, aquifer",
         "label": "Headspace equilibration method, SLAC-SFA",
@@ -69,6 +69,6 @@
     },
     "registrant": "SLAC SFA",
     "relatedResource": [],
-    "sampleidentifier": "IGSN:10.58052/IERVTL1I7",
+    "sampleidentifier": "igsn:10.58052/IERVTL1I7",
     "samplingPurpose": "2018 inundation tracer tests"
 }

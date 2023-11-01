@@ -10,14 +10,14 @@ def test_sesar_things_saved(sesar_session: Session, isb_session: Session):
     assert no_keys_yet == {}
 
     expected_keys = {
-        '10.60471/ODP01LAMY': 1,
-        '10.60471/ODP02Q1IZ': 2,
-        '10.58052/EOI00002H': 3,
-        '10.58052/IEDUT103B': 4,
-        '10.58052/IEJEN0040': 5,
-        '10.58052/IERVTNTEZ': 6,
-        '10.58052/IERVTL1I7': 7,
-        '10.58052/IEEJR000M': 8
+        'igsn:10.60471/ODP01LAMY': 1,
+        'igsn:10.60471/ODP02Q1IZ': 2,
+        'igsn:10.58052/EOI00002H': 3,
+        'igsn:10.58052/IEDUT103B': 4,
+        'igsn:10.58052/IEJEN0040': 5,
+        'igsn:10.58052/IERVTNTEZ': 6,
+        'igsn:10.58052/IERVTL1I7': 7,
+        'igsn:10.58052/IEEJR000M': 8
     }
     # add sesar things to isb
     load_sesar_entries(sesar_session, isb_session)
