@@ -1,11 +1,12 @@
 from typing import TYPE_CHECKING, Optional, List
-from sqlmodel import Field, SQLModel, Relationship
+from sqlmodel import Field, Relationship
+from .sesar_sqlmodel import SesarBase
 
 if TYPE_CHECKING:
     from .sample import Sample
 
 
-class Sesar_User(SQLModel, table=True):
+class Sesar_User(SesarBase, table=True):
     sesar_user_id: int = Field(
         primary_key=True,
         nullable=False,

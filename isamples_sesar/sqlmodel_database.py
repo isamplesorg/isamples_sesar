@@ -1,7 +1,7 @@
 from typing import Any, Optional
+from datetime import datetime
 
 from sqlmodel import create_engine, Session, select
-from sqlalchemy import text
 from isamples_sesar.sample import Sample
 
 
@@ -17,10 +17,17 @@ class SQLModelDAO:
         return Session(self.engine)
 
 
-def get_sample_rows(session: Session) -> Any:
-    sql = text("select * from sample limit 1")
-    sample_rows = session.execute(sql).fetchall()
-    return sample_rows
+def get_sample_rows(session: Session, offset: int = 0, limit: int = 1000, last_update_date: Optional[datetime] = None) -> Any:
+    if last_update_date is not None:
+        statement = (
+            select(Sample).filter(Sample.last_update_date >= last_update_date).order_by(Sample.sample_id).offset(offset).limit(limit)
+        )
+    else:
+        statement = (
+            select(Sample).order_by(Sample.sample_id).offset(offset).limit(limit)
+        )
+    results = session.exec(statement).all()
+    return results
 
 
 def get_sample_with_id(session: Session, sample_id: int) -> Optional[Sample]:

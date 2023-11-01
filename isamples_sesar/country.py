@@ -1,7 +1,8 @@
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field
+from .sesar_sqlmodel import SesarBase
 
 
-class Country(SQLModel, table=True):
+class Country(SesarBase, table=True):
     country_id: int = Field(
         primary_key=True,
         nullable=False,

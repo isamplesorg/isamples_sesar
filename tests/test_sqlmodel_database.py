@@ -1,7 +1,8 @@
 import pytest
-from sqlmodel import Session, SQLModel, create_engine
+from sqlmodel import Session, create_engine
 from sqlmodel.pool import StaticPool
 
+from isamples_sesar.sesar_sqlmodel import SesarBase
 from isamples_sesar.sample import Sample
 from isamples_sesar.classification import Classification
 from isamples_sesar.country import Country
@@ -24,7 +25,7 @@ def session_fixture():
         poolclass=StaticPool,
         echo=True
     )
-    SQLModel.metadata.create_all(engine)
+    SesarBase.metadata.create_all(engine)
     sample = Sample(
         sample_id=1,
         origin_sample_id=2,

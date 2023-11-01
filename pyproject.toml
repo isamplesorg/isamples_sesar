@@ -10,16 +10,16 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 click = "^8.1.7"
 sqlmodel = "^0.0.8"
 psycopg2 = "^2.9.7"
+isamples-inabox = {git = "https://github.com/isamplesorg/isamples_inabox.git", rev = "develop"}
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.1.0"
 mypy = "^1.5.1"
 pytest = "^7.4.0"
-black = "^23.7.0"
 
 [build-system]
 requires = ["poetry-core"]

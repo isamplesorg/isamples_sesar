@@ -131,7 +131,7 @@ class Transformer():
         return self.sample.name
 
     def sample_identifier_string(self) -> str:
-        return f"IGSN:{self.sample.igsn}"
+        return f"igsn:{self.sample.igsn}"
 
     def sample_description(self) -> str:
         description_arr = []
@@ -183,7 +183,7 @@ class Transformer():
 
     def produced_by_id_string(self) -> str:
         if self.sample.parent is not None:
-            return f"IGSN:{self.sample.parent.igsn}"
+            return f"igsn:{self.sample.parent.igsn}"
         return ""
 
     def produced_by_label(self) -> str:

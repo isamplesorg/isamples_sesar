@@ -1,8 +1,9 @@
 from typing import Optional
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field
+from .sesar_sqlmodel import SesarBase
 
 
-class Launch_Type(SQLModel, table=True):
+class Launch_Type(SesarBase, table=True):
     launch_type_id: int = Field(
         primary_key=True,
         nullable=False,

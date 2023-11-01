@@ -1,7 +1,8 @@
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field
+from .sesar_sqlmodel import SesarBase
 
 
-class Sample_Additional_Name(SQLModel, table=True):
+class Sample_Additional_Name(SesarBase, table=True):
     sample_additional_name_id: int = Field(
         primary_key=True,
         nullable=False,
