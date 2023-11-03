@@ -55,6 +55,7 @@ def test_example(sesar_session: Session, igsn):
     check_related_resource(transformed_test_data, expected_data)
     check_authorized_by(transformed_test_data, expected_data)
     check_complies_with(transformed_test_data, expected_data)
+    check_geo_to_h3(transformed_test_data, expected_data)
 
 
 def check_id(test_data, expected_data):
@@ -188,3 +189,21 @@ def check_authorized_by(test_data, expected_data):
 
 def check_complies_with(test_data, expected_data):
     assert test_data["compliesWith"] == expected_data["compliesWith"]
+
+
+def check_geo_to_h3(test_data, expected_data):
+    assert test_data["producedBy_samplingSite_location_h3_0"] == expected_data["producedBy_samplingSite_location_h3_0"]
+    assert test_data["producedBy_samplingSite_location_h3_1"] == expected_data["producedBy_samplingSite_location_h3_1"]
+    assert test_data["producedBy_samplingSite_location_h3_2"] == expected_data["producedBy_samplingSite_location_h3_2"]
+    assert test_data["producedBy_samplingSite_location_h3_3"] == expected_data["producedBy_samplingSite_location_h3_3"]
+    assert test_data["producedBy_samplingSite_location_h3_4"] == expected_data["producedBy_samplingSite_location_h3_4"]
+    assert test_data["producedBy_samplingSite_location_h3_5"] == expected_data["producedBy_samplingSite_location_h3_5"]
+    assert test_data["producedBy_samplingSite_location_h3_6"] == expected_data["producedBy_samplingSite_location_h3_6"]
+    assert test_data["producedBy_samplingSite_location_h3_7"] == expected_data["producedBy_samplingSite_location_h3_7"]
+    assert test_data["producedBy_samplingSite_location_h3_8"] == expected_data["producedBy_samplingSite_location_h3_8"]
+    assert test_data["producedBy_samplingSite_location_h3_9"] == expected_data["producedBy_samplingSite_location_h3_9"]
+    assert test_data["producedBy_samplingSite_location_h3_10"] == expected_data["producedBy_samplingSite_location_h3_10"]
+    assert test_data["producedBy_samplingSite_location_h3_11"] == expected_data["producedBy_samplingSite_location_h3_11"]
+    assert test_data["producedBy_samplingSite_location_h3_12"] == expected_data["producedBy_samplingSite_location_h3_12"]
+    assert test_data["producedBy_samplingSite_location_h3_13"] == expected_data["producedBy_samplingSite_location_h3_13"]
+    assert test_data["producedBy_samplingSite_location_h3_14"] == expected_data["producedBy_samplingSite_location_h3_14"]

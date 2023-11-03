@@ -5,7 +5,7 @@ import logging
 
 from isamples_sesar.sesar_adapter import SESARItem
 from isamples_sesar.sqlmodel_database import SQLModelDAO as SESAR_SQLModelDAO, get_sample_rows
-from isamples_sesar.sesar_transformer import Transformer
+from isamples_sesar.sesar_transformer import Transformer, geo_to_h3
 from isb_web.sqlmodel_database import SQLModelDAO as iSB_SQLModelDAO, all_thing_primary_keys, DatabaseBulkUpdater  # type: ignore
 
 BATCH_SIZE = 10000
@@ -34,9 +34,9 @@ def load_sesar_entries(sesar_db_session, isb_db_session, start_from=None):
                 num_newer += 1
                 thing_id = f"igsn:{sample.igsn}"
                 resolved_url = f"doi.org/{sample.igsn}"
-                # h3 = Transformer.geo_to_h3(current_record)
+                h3 = geo_to_h3(sample.latitude, sample.longitude)
                 t_created = sample.registration_date
-                bulk_updater.add_thing(current_record, thing_id, resolved_url, 200, "h3", t_created)
+                bulk_updater.add_thing(current_record, thing_id, resolved_url, 200, h3, t_created)
             offset += BATCH_SIZE
             bulk_updater.finish()
     print(f"Num newer={num_newer}\n\n")
