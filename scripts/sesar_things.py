@@ -2,6 +2,7 @@ import click
 import click_config_file
 import isb_lib.core  # type: ignore
 import logging
+import datetime
 
 from isamples_sesar.sesar_adapter import SESARItem
 from isamples_sesar.sqlmodel_database import SQLModelDAO as SESAR_SQLModelDAO, get_sample_rows
@@ -77,7 +78,7 @@ def main(ctx, sesar_db_url, isb_db_url, solr_url, verbosity):
     "-d",
     "--modification_date",
     type=click.DateTime(formats=["%Y-%m-%d"]),
-    default=None,
+    default=(datetime.datetime.now()-datetime.timedelta(days=7)).date().strftime("%Y-%m-%d"),
     help="""The modified date to use when considering delta updates.  Records with a last modified before this date
     will be ignored"""
 )

@@ -12,7 +12,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.11"
 click = "^8.1.7"
-sqlmodel = "^0.0.8"
+sqlmodel = "^0.0.12"
 psycopg2 = "^2.9.7"
 isamples-inabox = {git = "https://github.com/isamplesorg/isamples_inabox.git", rev = "develop"}
 
