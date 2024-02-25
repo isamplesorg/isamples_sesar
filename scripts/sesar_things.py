@@ -78,7 +78,7 @@ def main(ctx, sesar_db_url, isb_db_url, solr_url, verbosity):
     "-d",
     "--modification_date",
     type=click.DateTime(formats=["%Y-%m-%d"]),
-    default=(datetime.datetime.now()-datetime.timedelta(days=7)).date().strftime("%Y-%m-%d"),
+    default=(datetime.datetime.now()-datetime.timedelta(days=1)).date().strftime("%Y-%m-%d"), # default to last day for daily script
     help="""The modified date to use when considering delta updates.  Records with a last modified before this date
     will be ignored"""
 )
