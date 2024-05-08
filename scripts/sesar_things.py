@@ -3,11 +3,13 @@ import click_config_file
 import isb_lib.core  # type: ignore
 import logging
 import datetime
+import fileinput
+import json
 
 from isamples_sesar.sesar_adapter import SESARItem
 from isamples_sesar.sqlmodel_database import SQLModelDAO as SESAR_SQLModelDAO, get_sample_rows
 from isamples_sesar.sesar_transformer import Transformer, geo_to_h3
-from isb_web.sqlmodel_database import SQLModelDAO as iSB_SQLModelDAO, all_thing_primary_keys, DatabaseBulkUpdater  # type: ignore
+from isb_web.sqlmodel_database import SQLModelDAO as iSB_SQLModelDAO, all_thing_primary_keys, save_or_update_thing, get_thing_with_id, DatabaseBulkUpdater  # type: ignore
 
 BATCH_SIZE = 10000
 
@@ -42,6 +44,46 @@ def load_sesar_entries(sesar_db_session, isb_db_session, start_from=None):
             bulk_updater.finish()
     print(f"Num newer={num_newer}\n\n")
 
+def ingest_precalculated_vocab(isb_db_session, json_file):
+    count = 0
+    with fileinput.FileInput(json_file, inplace = True, backup ='.bak') as file: 
+        for line in file:
+            if line[:4] == 'done':
+                print(line, end='')
+                continue
+            precalculated_data = json.loads(line)
+            if precalculated_data == None:
+                continue
+            specimen_category = precalculated_data["has_specimen_category"]
+            material_category = precalculated_data["has_material_category"]
+            context_category = precalculated_data["has_context_category"]
+            igsn_suffix = precalculated_data["sample_identifier"][5:]
+            if (igsn_suffix[:3] == 'UKB'):
+                doi_prefix = '10.60665/'
+            elif (igsn_suffix[:3] == 'ODP'):
+                doi_prefix = '10.60471/'
+            elif (igsn_suffix[:5] == 'IEJAA'):
+                doi_prefix = '10.60471/'
+            elif (igsn_suffix[:3] == 'NHB'):
+                doi_prefix = '10.58151/'
+            elif (igsn_suffix[:3] == 'UGS'):
+                doi_prefix = '10.58136/'
+            elif (igsn_suffix[:3] == 'CNR'):
+                doi_prefix = ''
+            else:
+                doi_prefix = '10.58052/'
+            igsn = 'igsn:' + doi_prefix + igsn_suffix
+            current_record = get_thing_with_id(isb_db_session, igsn)
+            if current_record != None:
+                resolved_content_copy = current_record.resolved_content.copy()
+                resolved_content_copy["hasSpecimenCategory"] = specimen_category
+                resolved_content_copy["hasMaterialCategory"] = material_category
+                resolved_content_copy["hasContextCategory"] = context_category
+                current_record.resolved_content = resolved_content_copy
+                save_or_update_thing(isb_db_session,current_record)
+                print('done'+line, end='')
+                count+=1
+    print('samples updated: ' + str(count))
 
 @click.group()
 @click.option(
@@ -112,6 +154,21 @@ def populate_isb_core_solr(ctx):
     )
     logger.info(f"Total keys= {len(allkeys)}")
 
+@main.command("ingest_json")
+@click.option(
+    "-d",
+    "--json_file",
+    type=str,
+    default="output.json",
+    help="""The json file path to be used for ingesting data"""
+)
+@click_config_file.configuration_option(config_file_name="sesar.cfg")
+@click.pass_context
+def ingest_json(ctx, json_file):
+    click.echo(json_file)
+    isb_session = iSB_SQLModelDAO(ctx.obj["isb_db_url"]).get_session()
+    ingest_precalculated_vocab(isb_session, json_file)
+    isb_session.close()
 
 if __name__ == "__main__":
     main()
