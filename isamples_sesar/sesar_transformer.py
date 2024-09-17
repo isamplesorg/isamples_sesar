@@ -2,6 +2,14 @@ import typing
 from typing import Optional
 import logging
 import h3
+
+from .metadata_constants import METADATA_LABEL, METADATA_SAMPLE_IDENTIFIER, METADATA_DESCRIPTION, \
+    METADATA_HAS_CONTEXT_CATEGORY, METADATA_HAS_MATERIAL_CATEGORY, METADATA_HAS_SAMPLE_OBJECT_TYPE, \
+    METADATA_INFORMAL_CLASSIFICATION, METADATA_KEYWORDS, METADATA_AT_ID, METADATA_PRODUCED_BY, \
+    METADATA_HAS_FEATURE_OF_INTEREST, METADATA_RESPONSIBILITY, METADATA_RESULT_TIME, METADATA_SAMPLING_SITE, \
+    METADATA_SAMPLE_LOCATION, METADATA_ELEVATION, METADATA_LATITUDE, METADATA_LONGITUDE, METADATA_PLACE_NAME, \
+    METADATA_REGISTRANT, METADATA_SAMPLING_PURPOSE, METADATA_CURATION, METADATA_ACCESS_CONSTRAINTS, \
+    METADATA_CURATION_LOCATION, METADATA_RELATED_RESOURCE, METADATA_AUTHORIZED_BY, METADATA_COMPLIES_WITH
 from .sample import Sample
 
 from .mapper import (
@@ -39,53 +47,49 @@ class Transformer():
         specimen_categories = self.has_specimen_categories()
         transformed_record = {
             "$schema": "iSamplesSchemaCore1.0.json",
-            "@id": self.id_string(),
-            "label": self.sample_label(),
-            "sampleidentifier": self.sample_identifier_string(),
-            "description": self.sample_description(),
-            "hasContextCategory": context_categories,
+            METADATA_AT_ID: self.id_string(),
+            METADATA_LABEL: self.sample_label(),
+            METADATA_SAMPLE_IDENTIFIER: self.sample_identifier_string(),
+            METADATA_DESCRIPTION: self.sample_description(),
+            METADATA_HAS_CONTEXT_CATEGORY: context_categories,
             # "hasContextCategoryConfidence": self.has_context_category_confidences(context_categories),
-            "hasMaterialCategory": material_categories,
+            METADATA_HAS_MATERIAL_CATEGORY: material_categories,
             # "hasMaterialCategoryConfidence": self.has_material_category_confidences(material_categories),
-            "hasSpecimenCategory": specimen_categories,
+            METADATA_HAS_SAMPLE_OBJECT_TYPE: specimen_categories,
             # "hasSpecimenCategoryConfidence": self.has_specimen_category_confidences(specimen_categories),
-            "informalClassification": self.informal_classification(),
-            "keywords": self.keywords(),
-            "producedBy": {
-                "@id": self.produced_by_id_string(),
-                "label": self.produced_by_label(),
-                "description": self.produced_by_description(),
-                "hasFeatureOfInterest": self.produced_by_feature_of_interest(),
-                "responsibility": self.produced_by_responsibilities(),
-                "resultTime": self.produced_by_result_time(),
-                "samplingSite": {
-                    "description": self.sampling_site_description(),
-                    "label": self.sampling_site_label(),
-                    "location": {
-                        "elevation": self.sampling_site_elevation(),
-                        "latitude": self.sampling_site_latitude(),
-                        "longitude": self.sampling_site_longitude(),
+            METADATA_INFORMAL_CLASSIFICATION: self.informal_classification(),
+            METADATA_KEYWORDS: self.keywords(),
+            METADATA_PRODUCED_BY: {
+                METADATA_AT_ID: self.produced_by_id_string(),
+                METADATA_LABEL: self.produced_by_label(),
+                METADATA_DESCRIPTION: self.produced_by_description(),
+                METADATA_HAS_FEATURE_OF_INTEREST: self.produced_by_feature_of_interest(),
+                METADATA_RESPONSIBILITY: self.produced_by_responsibilities(),
+                METADATA_RESULT_TIME: self.produced_by_result_time(),
+                METADATA_SAMPLING_SITE: {
+                    METADATA_DESCRIPTION: self.sampling_site_description(),
+                    METADATA_LABEL: self.sampling_site_label(),
+                    METADATA_SAMPLE_LOCATION: {
+                        METADATA_ELEVATION: self.sampling_site_elevation(),
+                        METADATA_LATITUDE: self.sampling_site_latitude(),
+                        METADATA_LONGITUDE: self.sampling_site_longitude(),
                     },
-                    "placeName": self.sampling_site_place_names(),
+                    METADATA_PLACE_NAME: self.sampling_site_place_names(),
                 },
             },
-            "registrant": self.sample_registrant(),
-            "samplingPurpose": self.sample_sampling_purpose(),
-            "curation": {
-                "label": self.curation_label(),
-                "description": self.curation_description(),
-                "accessConstraints": self.curation_access_constraints(),
-                "curationLocation": self.curation_location(),
-                "responsibility": self.curation_responsibility(),
+            METADATA_REGISTRANT: self.sample_registrant(),
+            METADATA_SAMPLING_PURPOSE: self.sample_sampling_purpose(),
+            METADATA_CURATION: {
+                METADATA_LABEL: self.curation_label(),
+                METADATA_DESCRIPTION: self.curation_description(),
+                METADATA_ACCESS_CONSTRAINTS: self.curation_access_constraints(),
+                METADATA_CURATION_LOCATION: self.curation_location(),
+                METADATA_RESPONSIBILITY: self.curation_responsibility(),
             },
-            "relatedResource": self.related_resources(),
-            "authorizedBy": self.authorized_by(),
-            "compliesWith": self.complies_with(),
+            METADATA_RELATED_RESOURCE: self.related_resources(),
+            METADATA_AUTHORIZED_BY: self.authorized_by(),
+            METADATA_COMPLIES_WITH: self.complies_with(),
         }
-        for index in range(0, 15):
-            h3_at_resolution = self.h3_function()(self.sample.latitude, self.sample.longitude, index)
-            field_name = f"producedBy_samplingSite_location_h3_{index}"
-            transformed_record[field_name] = h3_at_resolution
         return transformed_record
 
     def has_context_categories(self) -> typing.List[str]:
