@@ -1,36 +1,19 @@
 {
     "$schema": "iSamplesSchemaCore1.0.json",
     "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/IEJEN0040",
-    "authorizedBy": [],
-    "compliesWith": [],
-    "curation": {
-        "accessConstraints": "Not Provided",
-        "curationLocation": "Lamont-Doherty Earth Observatory",
-        "description": "Not Provided",
-        "label": "Not Provided",
-        "responsibility": [
-            {
-                "contact_information": "jnichols@ldeo.columbia.edu",
-                "name": "Jonathan Nichols",
-                "role": "sample owner"
-            },
-            {
-                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
-                "role": "metadata publisher"
-            }
-        ]
-    },
+    "label": "Goldfin ~20 m moss from 30 cm hummock",
+    "sample_identifier": "igsn:10.58052/IEJEN0040",
     "description": "Biology",
-    "hasContextCategory": [
+    "has_context_category": [
         "Not Provided"
     ],
-    "hasMaterialCategory": [
+    "has_material_category": [
         "Organic material"
     ],
-    "hasSpecimenCategory": [
+    "has_sample_object_type": [
         "Other solid object"
     ],
-    "informalClassification": [
+    "informal_classification": [
         "Not Provided"
     ],
     "keywords": [
@@ -39,49 +22,51 @@
             "scheme_name": "SESAR: Sample Type"
         }
     ],
-    "label": "Goldfin ~20 m moss from 30 cm hummock",
-    "producedBy": {
+    "produced_by": {
         "@id": "",
-        "description": "Not Provided",
-        "hasFeatureOfInterest": "peatland",
         "label": "Not Provided",
+        "description": "Not Provided",
+        "has_feature_of_interest": "peatland",
         "responsibility": [
             {
-                "name": "Miriam Jones",
-                "role": "collector"
+                "role": "collector",
+                "name": "Miriam Jones"
             }
         ],
-        "resultTime": "2017-09-01",
-        "samplingSite": {
+        "result_time": "2017-09-01",
+        "sampling_site": {
             "description": "Not Provided",
             "label": "Not Provided",
-            "location": {
+            "sample_location": {
                 "elevation": "Not Provided",
                 "latitude": 60.25455,
                 "longitude": -149.35756666667
             },
-            "placeName": [
+            "place_name": [
                 "Gold Fin"
             ]
         }
     },
-    "producedBy_samplingSite_location_h3_0": "800dfffffffffff",
-    "producedBy_samplingSite_location_h3_1": "810c7ffffffffff",
-    "producedBy_samplingSite_location_h3_10": "8a0c42d0e837fff",
-    "producedBy_samplingSite_location_h3_11": "8b0c42d0e832fff",
-    "producedBy_samplingSite_location_h3_12": "8c0c42d0e8327ff",
-    "producedBy_samplingSite_location_h3_13": "8d0c42d0e8326ff",
-    "producedBy_samplingSite_location_h3_14": "8e0c42d0e8326e7",
-    "producedBy_samplingSite_location_h3_2": "820c47fffffffff",
-    "producedBy_samplingSite_location_h3_3": "830c42fffffffff",
-    "producedBy_samplingSite_location_h3_4": "840c42dffffffff",
-    "producedBy_samplingSite_location_h3_5": "850c42d3fffffff",
-    "producedBy_samplingSite_location_h3_6": "860c42d0fffffff",
-    "producedBy_samplingSite_location_h3_7": "870c42d0effffff",
-    "producedBy_samplingSite_location_h3_8": "880c42d0e9fffff",
-    "producedBy_samplingSite_location_h3_9": "890c42d0e83ffff",
     "registrant": "Jonathan Nichols",
-    "relatedResource": [],
-    "sampleidentifier": "igsn:10.58052/IEJEN0040",
-    "samplingPurpose": "Not Provided"
+    "sampling_purpose": "Not Provided",
+    "curation": {
+        "label": "Not Provided",
+        "description": "Not Provided",
+        "access_constraints": "Not Provided",
+        "curation_location": "Lamont-Doherty Earth Observatory",
+        "responsibility": [
+            {
+                "role": "sample owner",
+                "name": "Jonathan Nichols",
+                "contact_information": "jnichols@ldeo.columbia.edu"
+            },
+            {
+                "role": "metadata publisher",
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/"
+            }
+        ]
+    },
+    "related_resource": [],
+    "authorized_by": [],
+    "complies_with": []
 }

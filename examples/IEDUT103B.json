@@ -1,37 +1,20 @@
 {
     "$schema": "iSamplesSchemaCore1.0.json",
     "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/IEDUT103B",
-    "authorizedBy": [],
-    "compliesWith": [],
-    "curation": {
-        "accessConstraints": "Not Provided",
-        "curationLocation": "University of Florida Department of Geological Sciences",
-        "description": "Not Provided",
-        "label": "Not Provided",
-        "responsibility": [
-            {
-                "contact_information": "dutton3@wisc.edu",
-                "name": "Andrea Dutton",
-                "role": "sample owner"
-            },
-            {
-                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
-                "role": "metadata publisher"
-            }
-        ]
-    },
+    "label": "JAM42",
+    "sample_identifier": "igsn:10.58052/IEDUT103B",
     "description": "Macrobiology>Coral>Biology. Coring>HandHeldCorer. piece of short core",
-    "hasContextCategory": [
+    "has_context_category": [
         "Not Provided"
     ],
-    "hasMaterialCategory": [
+    "has_material_category": [
         "Organic material",
         "Biogenic non-organic material"
     ],
-    "hasSpecimenCategory": [
+    "has_sample_object_type": [
         "Not Provided"
     ],
-    "informalClassification": [
+    "informal_classification": [
         "Not Provided"
     ],
     "keywords": [
@@ -44,32 +27,31 @@
             "scheme_name": "taxon: species"
         }
     ],
-    "label": "JAM42",
-    "producedBy": {
+    "produced_by": {
         "@id": "",
-        "description": "cruiseFieldPrgrm:UF Jamaica 2015 Fieldwork. Collection method:Coring>HandHeldCorer. piece of short core",
-        "hasFeatureOfInterest": "Reef",
         "label": "Coring>HandHeldCorer, UF Jamaica 2015 Fieldwork",
+        "description": "cruiseFieldPrgrm:UF Jamaica 2015 Fieldwork. Collection method:Coring>HandHeldCorer. piece of short core",
+        "has_feature_of_interest": "Reef",
         "responsibility": [
             {
-                "name": "Andrea Dutton",
-                "role": "collector"
+                "role": "collector",
+                "name": "Andrea Dutton"
             },
             {
-                "name": "UF Jamaica 2015 Fieldwork",
-                "role": "sponsor"
+                "role": "sponsor",
+                "name": "UF Jamaica 2015 Fieldwork"
             }
         ],
-        "resultTime": "2015-06-19",
-        "samplingSite": {
+        "result_time": "2015-06-19",
+        "sampling_site": {
             "description": "Between Buccaneer Villa, Treasure Beach, and Great Bay",
             "label": "Treasure Beach",
-            "location": {
+            "sample_location": {
                 "elevation": "1.626 m",
                 "latitude": 17.88451,
                 "longitude": -77.77107
             },
-            "placeName": [
+            "place_name": [
                 "Limestone Falmouth Formation ",
                 "Saint Elizabeth",
                 "Cornwall",
@@ -77,23 +59,26 @@
             ]
         }
     },
-    "producedBy_samplingSite_location_h3_0": "8067fffffffffff",
-    "producedBy_samplingSite_location_h3_1": "8145bffffffffff",
-    "producedBy_samplingSite_location_h3_10": "8a45b29884e7fff",
-    "producedBy_samplingSite_location_h3_11": "8b45b29884e1fff",
-    "producedBy_samplingSite_location_h3_12": "8c45b29884e15ff",
-    "producedBy_samplingSite_location_h3_13": "8d45b29884e147f",
-    "producedBy_samplingSite_location_h3_14": "8e45b29884e1457",
-    "producedBy_samplingSite_location_h3_2": "8245b7fffffffff",
-    "producedBy_samplingSite_location_h3_3": "8345b2fffffffff",
-    "producedBy_samplingSite_location_h3_4": "8445b29ffffffff",
-    "producedBy_samplingSite_location_h3_5": "8545b29bfffffff",
-    "producedBy_samplingSite_location_h3_6": "8645b298fffffff",
-    "producedBy_samplingSite_location_h3_7": "8745b2988ffffff",
-    "producedBy_samplingSite_location_h3_8": "8845b29885fffff",
-    "producedBy_samplingSite_location_h3_9": "8945b29884fffff",
     "registrant": "Andrea Dutton",
-    "relatedResource": [],
-    "sampleidentifier": "igsn:10.58052/IEDUT103B",
-    "samplingPurpose": "Paleosea-level"
+    "sampling_purpose": "Paleosea-level",
+    "curation": {
+        "label": "Not Provided",
+        "description": "Not Provided",
+        "access_constraints": "Not Provided",
+        "curation_location": "University of Florida Department of Geological Sciences",
+        "responsibility": [
+            {
+                "role": "sample owner",
+                "name": "Andrea Dutton",
+                "contact_information": "dutton3@wisc.edu"
+            },
+            {
+                "role": "metadata publisher",
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/"
+            }
+        ]
+    },
+    "related_resource": [],
+    "authorized_by": [],
+    "complies_with": []
 }

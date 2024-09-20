@@ -2,6 +2,9 @@ import typing
 from typing import Optional
 import logging
 import h3
+from isamples_api.controlled_vocabulary import VocabularyTerm
+from isamples_api.transformer import AbstractTransformer
+
 from .sample import Sample
 
 from .mapper import (
@@ -14,7 +17,7 @@ from .mapper import (
 )
 
 
-class Transformer():
+class Transformer(AbstractTransformer):
 
     NOT_PROVIDED = "Not Provided"
 
@@ -26,69 +29,7 @@ class Transformer():
         self.sample = sample
         self._material_prediction_results: Optional[list] = None
 
-    def transform(self) -> typing.Dict:
-        """Do the actual work of transforming a Sesar record into an iSamples record.
-
-        Arguments:
-            sample -- The Sesar record to be transformed
-        Return value:
-            The Sesar record transformed into an iSamples record
-        """
-        context_categories = self.has_context_categories()
-        material_categories = self.has_material_categories()
-        specimen_categories = self.has_specimen_categories()
-        transformed_record = {
-            "$schema": "iSamplesSchemaCore1.0.json",
-            "@id": self.id_string(),
-            "label": self.sample_label(),
-            "sampleidentifier": self.sample_identifier_string(),
-            "description": self.sample_description(),
-            "hasContextCategory": context_categories,
-            # "hasContextCategoryConfidence": self.has_context_category_confidences(context_categories),
-            "hasMaterialCategory": material_categories,
-            # "hasMaterialCategoryConfidence": self.has_material_category_confidences(material_categories),
-            "hasSpecimenCategory": specimen_categories,
-            # "hasSpecimenCategoryConfidence": self.has_specimen_category_confidences(specimen_categories),
-            "informalClassification": self.informal_classification(),
-            "keywords": self.keywords(),
-            "producedBy": {
-                "@id": self.produced_by_id_string(),
-                "label": self.produced_by_label(),
-                "description": self.produced_by_description(),
-                "hasFeatureOfInterest": self.produced_by_feature_of_interest(),
-                "responsibility": self.produced_by_responsibilities(),
-                "resultTime": self.produced_by_result_time(),
-                "samplingSite": {
-                    "description": self.sampling_site_description(),
-                    "label": self.sampling_site_label(),
-                    "location": {
-                        "elevation": self.sampling_site_elevation(),
-                        "latitude": self.sampling_site_latitude(),
-                        "longitude": self.sampling_site_longitude(),
-                    },
-                    "placeName": self.sampling_site_place_names(),
-                },
-            },
-            "registrant": self.sample_registrant(),
-            "samplingPurpose": self.sample_sampling_purpose(),
-            "curation": {
-                "label": self.curation_label(),
-                "description": self.curation_description(),
-                "accessConstraints": self.curation_access_constraints(),
-                "curationLocation": self.curation_location(),
-                "responsibility": self.curation_responsibility(),
-            },
-            "relatedResource": self.related_resources(),
-            "authorizedBy": self.authorized_by(),
-            "compliesWith": self.complies_with(),
-        }
-        for index in range(0, 15):
-            h3_at_resolution = self.h3_function()(self.sample.latitude, self.sample.longitude, index)
-            field_name = f"producedBy_samplingSite_location_h3_{index}"
-            transformed_record[field_name] = h3_at_resolution
-        return transformed_record
-
-    def has_context_categories(self) -> typing.List[str]:
+    def has_context_categories(self) -> list[VocabularyTerm]:
         material_type = self._material_type()
         primary_location_type = self.sample.primary_location_type
         return ContextCategoryMetaMapper.categories(
@@ -103,7 +44,7 @@ class Transformer():
     #     return None
 
     # Disabled pending resolution of https://github.com/isamplesorg/isamples_inabox/issues/255
-    def has_material_categories(self) -> typing.List[str]:
+    def has_material_categories(self) -> list[VocabularyTerm]:
         material = self._material_type()
         # TODO: implement predictions
         # if not material:
@@ -114,7 +55,7 @@ class Transformer():
         #         return []
         return MaterialCategoryMetaMapper.categories(material)
 
-    def has_specimen_categories(self) -> typing.List[str]:
+    def has_material_sample_object_type_categories(self) -> list[VocabularyTerm]:
         sample_type = self.sample.sample_type.name
         return SpecimenCategoryMetaMapper.categories(sample_type)
 

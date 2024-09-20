@@ -1,40 +1,19 @@
 {
     "$schema": "iSamplesSchemaCore1.0.json",
     "@id": "https://data.isamples.org/digitalsample/igsn/10.60471/ODP02Q1IZ",
-    "authorizedBy": [],
-    "compliesWith": [],
-    "curation": {
-        "accessConstraints": "Not Provided",
-        "curationLocation": "Integrated Ocean Drilling Program (IODP)",
-        "description": "Not Provided",
-        "label": "Not Provided",
-        "responsibility": [
-            {
-                "name": "Integrated Ocean Drilling Program (TAMU)",
-                "role": "curator"
-            },
-            {
-                "contact_information": "information@iodp.tamu.edu",
-                "name": "Integrated Ocean Drilling Program (TAMU)",
-                "role": "sample owner"
-            },
-            {
-                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
-                "role": "metadata publisher"
-            }
-        ]
-    },
+    "label": "Sample 178-1098B-1H-3 (26-27 cm.)",
+    "sample_identifier": "igsn:10.60471/ODP02Q1IZ",
     "description": "Janus sample_id: 63151",
-    "hasContextCategory": [
+    "has_context_category": [
         "Not Provided"
     ],
-    "hasMaterialCategory": [
+    "has_material_category": [
         "Not Provided"
     ],
-    "hasSpecimenCategory": [
+    "has_sample_object_type": [
         "Other solid object"
     ],
-    "informalClassification": [
+    "informal_classification": [
         "Not Provided"
     ],
     "keywords": [
@@ -43,47 +22,53 @@
             "scheme_name": "SESAR: Sample Type"
         }
     ],
-    "label": "Sample 178-1098B-1H-3 (26-27 cm.)",
-    "producedBy": {
+    "produced_by": {
         "@id": "igsn:10.60471/ODP01LAMY",
-        "description": "cruiseFieldPrgrm:ODP Leg 178. Janus sample_id: 63151",
-        "hasFeatureOfInterest": "Not Provided",
         "label": "ODP Leg 178",
+        "description": "cruiseFieldPrgrm:ODP Leg 178. Janus sample_id: 63151",
+        "has_feature_of_interest": "Not Provided",
         "responsibility": [
             {
-                "name": "ODP Leg 178",
-                "role": "sponsor"
+                "role": "sponsor",
+                "name": "ODP Leg 178"
             }
         ],
-        "resultTime": "2006-08-11",
-        "samplingSite": {
+        "result_time": "2006-08-11",
+        "sampling_site": {
             "description": "Not Provided",
             "label": "Not Provided",
-            "location": {
+            "sample_location": {
                 "elevation": "-1010.6 m",
                 "latitude": -64.86194,
                 "longitude": -64.20799
             },
-            "placeName": []
+            "place_name": []
         }
     },
-    "producedBy_samplingSite_location_h3_0": "80dffffffffffff",
-    "producedBy_samplingSite_location_h3_1": "81df3ffffffffff",
-    "producedBy_samplingSite_location_h3_10": "8adf35928cf7fff",
-    "producedBy_samplingSite_location_h3_11": "8bdf35928cf0fff",
-    "producedBy_samplingSite_location_h3_12": "8cdf35928cf05ff",
-    "producedBy_samplingSite_location_h3_13": "8ddf35928cf0cff",
-    "producedBy_samplingSite_location_h3_14": "8edf35928cf0cdf",
-    "producedBy_samplingSite_location_h3_2": "82df37fffffffff",
-    "producedBy_samplingSite_location_h3_3": "83e89bfffffffff",
-    "producedBy_samplingSite_location_h3_4": "84df359ffffffff",
-    "producedBy_samplingSite_location_h3_5": "85df3593fffffff",
-    "producedBy_samplingSite_location_h3_6": "86df3592fffffff",
-    "producedBy_samplingSite_location_h3_7": "87df35928ffffff",
-    "producedBy_samplingSite_location_h3_8": "88df35928dfffff",
-    "producedBy_samplingSite_location_h3_9": "89df35928cfffff",
     "registrant": "Integrated Ocean Drilling Program (TAMU)",
-    "relatedResource": [],
-    "sampleidentifier": "igsn:10.60471/ODP02Q1IZ",
-    "samplingPurpose": "Not Provided"
+    "sampling_purpose": "Not Provided",
+    "curation": {
+        "label": "Not Provided",
+        "description": "Not Provided",
+        "access_constraints": "Not Provided",
+        "curation_location": "Integrated Ocean Drilling Program (IODP)",
+        "responsibility": [
+            {
+                "role": "curator",
+                "name": "Integrated Ocean Drilling Program (TAMU)"
+            },
+            {
+                "role": "sample owner",
+                "name": "Integrated Ocean Drilling Program (TAMU)",
+                "contact_information": "information@iodp.tamu.edu"
+            },
+            {
+                "role": "metadata publisher",
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/"
+            }
+        ]
+    },
+    "related_resource": [],
+    "authorized_by": [],
+    "complies_with": []
 }

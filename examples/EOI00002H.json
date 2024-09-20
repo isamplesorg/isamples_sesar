@@ -1,36 +1,19 @@
 {
     "$schema": "iSamplesSchemaCore1.0.json",
     "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/EOI00002H",
-    "authorizedBy": [],
-    "compliesWith": [],
-    "curation": {
-        "accessConstraints": "Not Provided",
-        "curationLocation": "Not Provided",
-        "description": "Not Provided",
-        "label": "Not Provided",
-        "responsibility": [
-            {
-                "contact_information": "andra.bobbitt@noaa.gov",
-                "name": "Andra Bobbitt",
-                "role": "sample owner"
-            },
-            {
-                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
-                "role": "metadata publisher"
-            }
-        ]
-    },
+    "label": "J730-GTHFS-16",
+    "sample_identifier": "igsn:10.58052/EOI00002H",
     "description": "Gas. Sampler:Fluid:GTHFS. HFS gastight. Red-center-9. T=250C",
-    "hasContextCategory": [
+    "has_context_category": [
         "Subsurface fluid reservoir"
     ],
-    "hasMaterialCategory": [
+    "has_material_category": [
         "Gaseous material"
     ],
-    "hasSpecimenCategory": [
+    "has_sample_object_type": [
         "Other solid object"
     ],
-    "informalClassification": [
+    "informal_classification": [
         "Not Provided"
     ],
     "keywords": [
@@ -39,53 +22,55 @@
             "scheme_name": "SESAR: Sample Type"
         }
     ],
-    "label": "J730-GTHFS-16",
-    "producedBy": {
+    "produced_by": {
         "@id": "",
-        "description": "cruiseFieldPrgrm:TN300. launchPlatformName:Jason II. Collection method:Sampler:Fluid:GTHFS. HFS gastight. Red-center-9. T=250C. launch type:ROV, navigation type:USBL",
-        "hasFeatureOfInterest": "volcano",
         "label": "Sampler:Fluid:GTHFS, TN300",
+        "description": "cruiseFieldPrgrm:TN300. launchPlatformName:Jason II. Collection method:Sampler:Fluid:GTHFS. HFS gastight. Red-center-9. T=250C. launch type:ROV, navigation type:USBL",
+        "has_feature_of_interest": "volcano",
         "responsibility": [
             {
-                "name": "Evans_Leigh",
-                "role": "collector"
+                "role": "collector",
+                "name": "Evans_Leigh"
             },
             {
-                "name": "TN300",
-                "role": "sponsor"
+                "role": "sponsor",
+                "name": "TN300"
             }
         ],
-        "resultTime": "2013-09-14",
-        "samplingSite": {
+        "result_time": "2013-09-14",
+        "sampling_site": {
             "description": "Trevi:Jason Tmax=257.9 C. In the direct flow at this small anhydrite mound (anhydrite knocked over).",
             "label": "Not Provided",
-            "location": {
+            "sample_location": {
                 "elevation": "-1520.0 m",
                 "latitude": 45.946265,
                 "longitude": -129.983725
             },
-            "placeName": [
+            "place_name": [
                 "Axial Seamount"
             ]
         }
     },
-    "producedBy_samplingSite_location_h3_0": "8029fffffffffff",
-    "producedBy_samplingSite_location_h3_1": "8128fffffffffff",
-    "producedBy_samplingSite_location_h3_10": "8a28ed791baffff",
-    "producedBy_samplingSite_location_h3_11": "8b28ed791ba9fff",
-    "producedBy_samplingSite_location_h3_12": "8c28ed791ba97ff",
-    "producedBy_samplingSite_location_h3_13": "8d28ed791ba967f",
-    "producedBy_samplingSite_location_h3_14": "8e28ed791ba9647",
-    "producedBy_samplingSite_location_h3_2": "8228effffffffff",
-    "producedBy_samplingSite_location_h3_3": "8328edfffffffff",
-    "producedBy_samplingSite_location_h3_4": "8428ed7ffffffff",
-    "producedBy_samplingSite_location_h3_5": "8528ed7bfffffff",
-    "producedBy_samplingSite_location_h3_6": "8628ed797ffffff",
-    "producedBy_samplingSite_location_h3_7": "8728ed791ffffff",
-    "producedBy_samplingSite_location_h3_8": "8828ed791bfffff",
-    "producedBy_samplingSite_location_h3_9": "8928ed791bbffff",
     "registrant": "Andra Bobbitt",
-    "relatedResource": [],
-    "sampleidentifier": "igsn:10.58052/EOI00002H",
-    "samplingPurpose": "Not Provided"
+    "sampling_purpose": "Not Provided",
+    "curation": {
+        "label": "Not Provided",
+        "description": "Not Provided",
+        "access_constraints": "Not Provided",
+        "curation_location": "Not Provided",
+        "responsibility": [
+            {
+                "role": "sample owner",
+                "name": "Andra Bobbitt",
+                "contact_information": "andra.bobbitt@noaa.gov"
+            },
+            {
+                "role": "metadata publisher",
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/"
+            }
+        ]
+    },
+    "related_resource": [],
+    "authorized_by": [],
+    "complies_with": []
 }
