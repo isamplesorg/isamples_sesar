@@ -29,7 +29,7 @@ class Transformer(AbstractTransformer):
         self.sample = sample
         self._material_prediction_results: Optional[list] = None
 
-    def has_context_categories(self) -> typing.List[str]:
+    def has_context_categories(self) -> list[VocabularyTerm]:
         material_type = self._material_type()
         primary_location_type = self.sample.primary_location_type
         return ContextCategoryMetaMapper.categories(
@@ -44,7 +44,7 @@ class Transformer(AbstractTransformer):
     #     return None
 
     # Disabled pending resolution of https://github.com/isamplesorg/isamples_inabox/issues/255
-    def has_material_categories(self) -> typing.List[str]:
+    def has_material_categories(self) -> list[VocabularyTerm]:
         material = self._material_type()
         # TODO: implement predictions
         # if not material:
@@ -55,7 +55,7 @@ class Transformer(AbstractTransformer):
         #         return []
         return MaterialCategoryMetaMapper.categories(material)
 
-    def has_material_sample_object_type_categories(self) -> typing.List[str]:
+    def has_material_sample_object_type_categories(self) -> list[VocabularyTerm]:
         sample_type = self.sample.sample_type.name
         return SpecimenCategoryMetaMapper.categories(sample_type)
 

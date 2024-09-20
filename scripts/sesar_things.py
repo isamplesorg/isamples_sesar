@@ -44,46 +44,53 @@ def load_sesar_entries(sesar_db_session, isb_db_session, start_from=None):
             bulk_updater.finish()
     print(f"Num newer={num_newer}\n\n")
 
+
 def ingest_precalculated_vocab(isb_db_session, json_file):
     count = 0
-    with fileinput.FileInput(json_file, inplace = True, backup ='.bak') as file: 
+    with fileinput.FileInput(json_file, inplace=True, backup='.bak') as file:
         for line in file:
             if line[:4] == 'done':
                 print(line, end='')
                 continue
             precalculated_data = json.loads(line)
-            if precalculated_data == None:
+            if precalculated_data is None:
                 continue
             specimen_category = precalculated_data["has_specimen_category"]
             material_category = precalculated_data["has_material_category"]
             context_category = precalculated_data["has_context_category"]
             igsn_suffix = precalculated_data["sample_identifier"][5:]
-            if (igsn_suffix[:3] == 'UKB'):
-                doi_prefix = '10.60665/'
-            elif (igsn_suffix[:3] == 'ODP'):
-                doi_prefix = '10.60471/'
-            elif (igsn_suffix[:5] == 'IEJAA'):
-                doi_prefix = '10.60471/'
-            elif (igsn_suffix[:3] == 'NHB'):
-                doi_prefix = '10.58151/'
-            elif (igsn_suffix[:3] == 'UGS'):
-                doi_prefix = '10.58136/'
-            elif (igsn_suffix[:3] == 'CNR'):
-                doi_prefix = ''
-            else:
-                doi_prefix = '10.58052/'
+            doi_prefix = _calculate_doi_prefix(igsn_suffix)
             igsn = 'igsn:' + doi_prefix + igsn_suffix
             current_record = get_thing_with_id(isb_db_session, igsn)
-            if current_record != None:
+            if current_record is not None:
                 resolved_content_copy = current_record.resolved_content.copy()
                 resolved_content_copy["hasSpecimenCategory"] = specimen_category
                 resolved_content_copy["hasMaterialCategory"] = material_category
                 resolved_content_copy["hasContextCategory"] = context_category
                 current_record.resolved_content = resolved_content_copy
-                save_or_update_thing(isb_db_session,current_record)
-                print('done'+line, end='')
-                count+=1
+                save_or_update_thing(isb_db_session, current_record)
+                print('done' + line, end='')
+                count += 1
     print('samples updated: ' + str(count))
+
+
+def _calculate_doi_prefix(igsn_suffix):
+    if (igsn_suffix[:3] == 'UKB'):
+        doi_prefix = '10.60665/'
+    elif (igsn_suffix[:3] == 'ODP'):
+        doi_prefix = '10.60471/'
+    elif (igsn_suffix[:5] == 'IEJAA'):
+        doi_prefix = '10.60471/'
+    elif (igsn_suffix[:3] == 'NHB'):
+        doi_prefix = '10.58151/'
+    elif (igsn_suffix[:3] == 'UGS'):
+        doi_prefix = '10.58136/'
+    elif (igsn_suffix[:3] == 'CNR'):
+        doi_prefix = ''
+    else:
+        doi_prefix = '10.58052/'
+    return doi_prefix
+
 
 @click.group()
 @click.option(
@@ -120,7 +127,7 @@ def main(ctx, sesar_db_url, isb_db_url, solr_url, verbosity):
     "-d",
     "--modification_date",
     type=click.DateTime(formats=["%Y-%m-%d"]),
-    default=(datetime.datetime.now()-datetime.timedelta(days=1)).date().strftime("%Y-%m-%d"), # default to last day for daily script
+    default=(datetime.datetime.now() - datetime.timedelta(days=1)).date().strftime("%Y-%m-%d"),  # default to last day for daily script
     help="""The modified date to use when considering delta updates.  Records with a last modified before this date
     will be ignored"""
 )
@@ -154,6 +161,7 @@ def populate_isb_core_solr(ctx):
     )
     logger.info(f"Total keys= {len(allkeys)}")
 
+
 @main.command("ingest_json")
 @click.option(
     "-d",
@@ -169,6 +177,7 @@ def ingest_json(ctx, json_file):
     isb_session = iSB_SQLModelDAO(ctx.obj["isb_db_url"]).get_session()
     ingest_precalculated_vocab(isb_session, json_file)
     isb_session.close()
+
 
 if __name__ == "__main__":
     main()
