@@ -2,14 +2,9 @@ import typing
 from typing import Optional
 import logging
 import h3
+from isamples_api.controlled_vocabulary import VocabularyTerm
+from isamples_api.transformer import AbstractTransformer
 
-from .metadata_constants import METADATA_LABEL, METADATA_SAMPLE_IDENTIFIER, METADATA_DESCRIPTION, \
-    METADATA_HAS_CONTEXT_CATEGORY, METADATA_HAS_MATERIAL_CATEGORY, METADATA_HAS_SAMPLE_OBJECT_TYPE, \
-    METADATA_INFORMAL_CLASSIFICATION, METADATA_KEYWORDS, METADATA_AT_ID, METADATA_PRODUCED_BY, \
-    METADATA_HAS_FEATURE_OF_INTEREST, METADATA_RESPONSIBILITY, METADATA_RESULT_TIME, METADATA_SAMPLING_SITE, \
-    METADATA_SAMPLE_LOCATION, METADATA_ELEVATION, METADATA_LATITUDE, METADATA_LONGITUDE, METADATA_PLACE_NAME, \
-    METADATA_REGISTRANT, METADATA_SAMPLING_PURPOSE, METADATA_CURATION, METADATA_ACCESS_CONSTRAINTS, \
-    METADATA_CURATION_LOCATION, METADATA_RELATED_RESOURCE, METADATA_AUTHORIZED_BY, METADATA_COMPLIES_WITH
 from .sample import Sample
 
 from .mapper import (
@@ -22,7 +17,7 @@ from .mapper import (
 )
 
 
-class Transformer():
+class Transformer(AbstractTransformer):
 
     NOT_PROVIDED = "Not Provided"
 
@@ -33,64 +28,6 @@ class Transformer():
     def __init__(self, sample: Sample):
         self.sample = sample
         self._material_prediction_results: Optional[list] = None
-
-    def transform(self) -> typing.Dict:
-        """Do the actual work of transforming a Sesar record into an iSamples record.
-
-        Arguments:
-            sample -- The Sesar record to be transformed
-        Return value:
-            The Sesar record transformed into an iSamples record
-        """
-        context_categories = self.has_context_categories()
-        material_categories = self.has_material_categories()
-        specimen_categories = self.has_specimen_categories()
-        transformed_record = {
-            "$schema": "iSamplesSchemaCore1.0.json",
-            METADATA_AT_ID: self.id_string(),
-            METADATA_LABEL: self.sample_label(),
-            METADATA_SAMPLE_IDENTIFIER: self.sample_identifier_string(),
-            METADATA_DESCRIPTION: self.sample_description(),
-            METADATA_HAS_CONTEXT_CATEGORY: context_categories,
-            # "hasContextCategoryConfidence": self.has_context_category_confidences(context_categories),
-            METADATA_HAS_MATERIAL_CATEGORY: material_categories,
-            # "hasMaterialCategoryConfidence": self.has_material_category_confidences(material_categories),
-            METADATA_HAS_SAMPLE_OBJECT_TYPE: specimen_categories,
-            # "hasSpecimenCategoryConfidence": self.has_specimen_category_confidences(specimen_categories),
-            METADATA_INFORMAL_CLASSIFICATION: self.informal_classification(),
-            METADATA_KEYWORDS: self.keywords(),
-            METADATA_PRODUCED_BY: {
-                METADATA_AT_ID: self.produced_by_id_string(),
-                METADATA_LABEL: self.produced_by_label(),
-                METADATA_DESCRIPTION: self.produced_by_description(),
-                METADATA_HAS_FEATURE_OF_INTEREST: self.produced_by_feature_of_interest(),
-                METADATA_RESPONSIBILITY: self.produced_by_responsibilities(),
-                METADATA_RESULT_TIME: self.produced_by_result_time(),
-                METADATA_SAMPLING_SITE: {
-                    METADATA_DESCRIPTION: self.sampling_site_description(),
-                    METADATA_LABEL: self.sampling_site_label(),
-                    METADATA_SAMPLE_LOCATION: {
-                        METADATA_ELEVATION: self.sampling_site_elevation(),
-                        METADATA_LATITUDE: self.sampling_site_latitude(),
-                        METADATA_LONGITUDE: self.sampling_site_longitude(),
-                    },
-                    METADATA_PLACE_NAME: self.sampling_site_place_names(),
-                },
-            },
-            METADATA_REGISTRANT: self.sample_registrant(),
-            METADATA_SAMPLING_PURPOSE: self.sample_sampling_purpose(),
-            METADATA_CURATION: {
-                METADATA_LABEL: self.curation_label(),
-                METADATA_DESCRIPTION: self.curation_description(),
-                METADATA_ACCESS_CONSTRAINTS: self.curation_access_constraints(),
-                METADATA_CURATION_LOCATION: self.curation_location(),
-                METADATA_RESPONSIBILITY: self.curation_responsibility(),
-            },
-            METADATA_RELATED_RESOURCE: self.related_resources(),
-            METADATA_AUTHORIZED_BY: self.authorized_by(),
-            METADATA_COMPLIES_WITH: self.complies_with(),
-        }
-        return transformed_record
 
     def has_context_categories(self) -> typing.List[str]:
         material_type = self._material_type()
@@ -118,7 +55,7 @@ class Transformer():
         #         return []
         return MaterialCategoryMetaMapper.categories(material)
 
-    def has_specimen_categories(self) -> typing.List[str]:
+    def has_material_sample_object_type_categories(self) -> typing.List[str]:
         sample_type = self.sample.sample_type.name
         return SpecimenCategoryMetaMapper.categories(sample_type)
 

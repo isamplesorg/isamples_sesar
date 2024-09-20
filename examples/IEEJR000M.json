@@ -1,36 +1,19 @@
 {
     "$schema": "iSamplesSchemaCore1.0.json",
     "@id": "https://data.isamples.org/digitalsample/igsn/10.58052/IEEJR000M",
-    "authorizedBy": [],
-    "compliesWith": [],
-    "curation": {
-        "accessConstraints": "Not Provided",
-        "curationLocation": "The University of Texas at Austin",
-        "description": "Not Provided",
-        "label": "Not Provided",
-        "responsibility": [
-            {
-                "contact_information": "ejramos@utexas.edu",
-                "name": "Evan Ramos",
-                "role": "sample owner"
-            },
-            {
-                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/",
-                "role": "metadata publisher"
-            }
-        ]
-    },
+    "label": "16ER6F3",
+    "sample_identifier": "igsn:10.58052/IEEJR000M",
     "description": "Metamorphic>Meta-Carbonate>Rock. Manual>Hammer",
-    "hasContextCategory": [
+    "has_context_category": [
         "Earth interior"
     ],
-    "hasMaterialCategory": [
+    "has_material_category": [
         "Rock"
     ],
-    "hasSpecimenCategory": [
+    "has_sample_object_type": [
         "Other solid object"
     ],
-    "informalClassification": [
+    "informal_classification": [
         "Not Provided"
     ],
     "keywords": [
@@ -43,28 +26,27 @@
             "scheme_name": "taxon: species"
         }
     ],
-    "label": "16ER6F3",
-    "producedBy": {
+    "produced_by": {
         "@id": "",
-        "description": "Collection method:Manual>Hammer",
-        "hasFeatureOfInterest": "Metamorphic aureole",
         "label": "Manual>Hammer",
+        "description": "Collection method:Manual>Hammer",
+        "has_feature_of_interest": "Metamorphic aureole",
         "responsibility": [
             {
-                "name": "Jade Star Lackey",
-                "role": "collector"
+                "role": "collector",
+                "name": "Jade Star Lackey"
             }
         ],
-        "resultTime": "2021-01-19",
-        "samplingSite": {
+        "result_time": "2021-01-19",
+        "sampling_site": {
             "description": "Not Provided",
             "label": "Not Provided",
-            "location": {
+            "sample_location": {
                 "elevation": "Not Provided",
                 "latitude": 36.461666,
                 "longitude": -118.583888
             },
-            "placeName": [
+            "place_name": [
                 "Mineral King",
                 "Sequoia National Forest",
                 "California",
@@ -73,23 +55,26 @@
             ]
         }
     },
-    "producedBy_samplingSite_location_h3_0": "8029fffffffffff",
-    "producedBy_samplingSite_location_h3_1": "8129bffffffffff",
-    "producedBy_samplingSite_location_h3_10": "8a29aa8f66dffff",
-    "producedBy_samplingSite_location_h3_11": "8b29aa8f66dbfff",
-    "producedBy_samplingSite_location_h3_12": "8c29aa8f66dbbff",
-    "producedBy_samplingSite_location_h3_13": "8d29aa8f66dbaff",
-    "producedBy_samplingSite_location_h3_14": "8e29aa8f66dbaef",
-    "producedBy_samplingSite_location_h3_2": "8229affffffffff",
-    "producedBy_samplingSite_location_h3_3": "8329aafffffffff",
-    "producedBy_samplingSite_location_h3_4": "8429aa9ffffffff",
-    "producedBy_samplingSite_location_h3_5": "8529aa8ffffffff",
-    "producedBy_samplingSite_location_h3_6": "8629aa8f7ffffff",
-    "producedBy_samplingSite_location_h3_7": "8729aa8f2ffffff",
-    "producedBy_samplingSite_location_h3_8": "8829aa8f2dfffff",
-    "producedBy_samplingSite_location_h3_9": "8929aa8f2d7ffff",
     "registrant": "Evan Ramos",
-    "relatedResource": [],
-    "sampleidentifier": "igsn:10.58052/IEEJR000M",
-    "samplingPurpose": "Not Provided"
+    "sampling_purpose": "Not Provided",
+    "curation": {
+        "label": "Not Provided",
+        "description": "Not Provided",
+        "access_constraints": "Not Provided",
+        "curation_location": "The University of Texas at Austin",
+        "responsibility": [
+            {
+                "role": "sample owner",
+                "name": "Evan Ramos",
+                "contact_information": "ejramos@utexas.edu"
+            },
+            {
+                "role": "metadata publisher",
+                "contact_information": "info@geosamples.org; url: https://www.geosamples.org/contact/"
+            }
+        ]
+    },
+    "related_resource": [],
+    "authorized_by": [],
+    "complies_with": []
 }
